@@ -4,10 +4,10 @@
    ================================================================ */
 
 /* ── Fonts ────────────────────────────────────────────────── */
-@font-face { font-family:'Sage Text'; src:url('../Font/SageText-Light.otf') format('opentype'); font-weight:300 }
-@font-face { font-family:'Sage Text'; src:url('../Font/SageText-Regular.otf') format('opentype'); font-weight:400 }
-@font-face { font-family:'Sage Text'; src:url('../Font/SageText-Medium.otf') format('opentype'); font-weight:500 }
-@font-face { font-family:'Sage Text'; src:url('../Font/SageText-Bold.otf') format('opentype'); font-weight:700 }
+@font-face { font-family:'Sage Text'; src:url('fonts/SageText-Light.otf') format('opentype'); font-weight:300 }
+@font-face { font-family:'Sage Text'; src:url('fonts/SageText-Regular.otf') format('opentype'); font-weight:400 }
+@font-face { font-family:'Sage Text'; src:url('fonts/SageText-Medium.otf') format('opentype'); font-weight:500 }
+@font-face { font-family:'Sage Text'; src:url('fonts/SageText-Bold.otf') format('opentype'); font-weight:700 }
 @font-face { font-family:'Sage Headline'; src:url('OpenType Fonts/SageHeadline-Black.otf') format('opentype'); font-weight:900 }
 @font-face { font-family:'Sage UI'; src:url('OpenType Fonts/SageUI-Regular.otf') format('opentype'); font-weight:400 }
 @font-face { font-family:'Sage UI'; src:url('OpenType Fonts/SageUI-Medium.otf') format('opentype'); font-weight:500 }
@@ -416,7 +416,7 @@ button { font-family: var(--font-ui); cursor: pointer; border: none; background:
   left: -80px;
   width: calc(61% + 160px); /* 160px larger on all sides to allow absolute fade out */
   height: calc(100% + 160px);
-  background-image: url('../glow.png');
+  background-image: url('asset/glow.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;

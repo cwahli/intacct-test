@@ -15,7 +15,7 @@ export default function AttachedPage() {
     <div className="container top-nav__inner">
       <div className="top-nav__left">
         <a href="http://localhost:5175/index.html#" className="top-nav__logo">
-          <img src="/src/Assets/Sage_logo.svg" alt="Sage logo" height="26" />
+          <img src="./src/Assets/Sage_logo.svg" alt="Sage logo" height="26" />
         </a>
         <ul className="top-nav__links">
           <li><a href="http://localhost:5175/index.html#">Products &amp; Solutions</a></li>
@@ -42,7 +42,7 @@ export default function AttachedPage() {
     <div className="container sub-nav__inner">
       
       <a href="http://localhost:5175/index.html#" className="sub-nav__brand">
-        <img src="/src/Assets/Sage Intacct.svg" alt="Sage Intacct icon" width="28" height="28" className="sub-nav__logo-icon" />
+        <img src="./src/Assets/Sage Intacct.svg" alt="Sage Intacct icon" width="28" height="28" className="sub-nav__logo-icon" />
         <span className="sub-nav__product-name">Sage Intacct</span>
       </a>
       
@@ -64,7 +64,7 @@ export default function AttachedPage() {
         
         <div className="sub-nav__actions">
           <a href="tel:1-877-437-7765" className="sub-nav__phone">
-            <img src="/src/Assets/call.svg" alt="Phone" width="14" height="14" className="phone-icon-svg" />
+            <img src="./src/Assets/call.svg" alt="Phone" width="14" height="14" className="phone-icon-svg" />
             1-877-437-7765
           </a>
           <a href="http://localhost:5175/index.html#demo" className="btn btn-green btn-sm">Request pricing</a>
@@ -114,7 +114,7 @@ export default function AttachedPage() {
                 <div className="viewport-header__right">
                   <div className="viewport-copilot-toggle" id="viewportCopilotToggle">
                     <div className="copilot-btn-circle">
-                      <img src="/src/Assets/Copilot identifier.svg" alt="Copilot" className="copilot-btn-img" />
+                      <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" className="copilot-btn-img" />
                     </div>
                   </div>
                   <div className="viewport-header__pill">
@@ -249,15 +249,15 @@ export default function AttachedPage() {
               <div className="screen-copilot-card" id="screenCopilot">
                 <div className="copilot-header">
                   <div className="copilot-header__left">
-                    <img src="/src/Assets/Copilot identifier.svg" alt="Copilot" className="copilot-header-icon" />
+                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" className="copilot-header-icon" />
                     <span className="copilot-title">Copilot</span>
                   </div>
                   <div className="copilot-header__right">
                     <span className="copilot-header-btn" title="Minimise">
-                      <img src="/src/Assets/chevron_down.svg" alt="Minimise" />
+                      <img src="./src/Assets/chevron_down.svg" alt="Minimise" />
                     </span>
                     <span className="copilot-header-btn" title="Close">
-                      <img src="/src/Assets/close.svg" alt="Close" />
+                      <img src="./src/Assets/close.svg" alt="Close" />
                     </span>
                   </div>
                 </div>
@@ -265,7 +265,7 @@ export default function AttachedPage() {
                 <div className="copilot-tabs">
                   <button className="copilot-tab copilot-tab--active">
                     <span className="tab-dot"></span>
-                    <img src="/src/Assets/Sparkle_white_background.svg" alt="Insights" style={{"width":"14px","height":"14px"}} /> Insights
+                    <img src="./src/Assets/Sparkle_white_background.svg" alt="Insights" style={{"width":"14px","height":"14px"}} /> Insights
                   </button>
                   <button className="copilot-tab">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Chat history
@@ -406,7 +406,7 @@ export default function AttachedPage() {
 
                 <div className="screen-copilot-card" id="copilotInvoice">
                   <div className="copilot-header">
-                    <img src="/src/Assets/Copilot identifier.svg" alt="Copilot" className="copilot-logo-img" />
+                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" className="copilot-logo-img" />
                     <span className="copilot-title">Copilot</span>
                   </div>
                   <div className="copilot-prompt" id="copilotInvoiceText"></div>
@@ -463,7 +463,7 @@ export default function AttachedPage() {
 
                 <div className="screen-copilot-card" id="copilotROI">
                   <div className="copilot-header">
-                    <img src="/src/Assets/Copilot identifier.svg" alt="Copilot" className="copilot-logo-img" />
+                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" className="copilot-logo-img" />
                     <span className="copilot-title">Copilot</span>
                   </div>
                   <div className="copilot-prompt" id="copilotROIText"></div>
@@ -688,7 +688,7 @@ export default function AttachedPage() {
                 {/* Chatbot Pane */}
                 <div className="chatbot-pane glow-purple-border">
                   <div className="chatbot-header">
-                    <div className="chatbot-icon-circle" style={{"background": "#9417ED", "color": "#FFFFFF"}}>S+</div>
+                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" className="copilot-header-icon" style={{width: 24, height: 24}} />
                     <span>Try the close agent</span>
                   </div>
                   <div className="chat-bubble-ai">

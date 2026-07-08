@@ -4,39 +4,6 @@
    Fully interactive elements with explanatory click events
    ================================================================ */
 
-import copilotLogo from './Copilot identifier.svg';
-
-const defaultApiKeyEncoded = 'QVEuQWI4Uk42SnhZNTM5LXRpMkdlUlpWVk9YMm9waWFJeGF3V3FQbVlvczIzOEtNMjdTQkE=';
-const defaultModelName = 'models/gemini-3.1-flash-lite';
-
-function getSavedApiKey() {
-  try {
-    return localStorage.getItem('gemini_api_key') || atob(defaultApiKeyEncoded);
-  } catch (e) {
-    return atob(defaultApiKeyEncoded);
-  }
-}
-
-function getSavedModel() {
-  try {
-    return localStorage.getItem('gemini_model') || defaultModelName;
-  } catch (e) {
-    return defaultModelName;
-  }
-}
-
-// Pre-populate default Gemini API Key and 3.1 Lite model if not already set
-try {
-  if (!localStorage.getItem('gemini_api_key')) {
-    localStorage.setItem('gemini_api_key', atob(defaultApiKeyEncoded));
-  }
-  if (!localStorage.getItem('gemini_model')) {
-    localStorage.setItem('gemini_model', defaultModelName);
-  }
-} catch (e) {
-  console.warn("Storage access not allowed or failed:", e);
-}
-
 // Password Protection logic
 (function() {
   const correctPassword = 'Sage' + '123';
@@ -169,12 +136,46 @@ window.PERSONALIZED_DATA = {
   c5Item3Name: 'Continuous Audit Logs',  c5Item3Status: 'Secured'
 };
 
+/* ── Terminology Translation Helper ── */
+window.applyTerminology = function(text) {
+  if (!text || typeof text !== 'string') return text;
+  const dictStr = (window.BUSINESS_VARIABLES && window.BUSINESS_VARIABLES.TerminologyDictionary) || "Turnover: revenue";
+  let processed = text;
+  
+  // Parse dictStr line by line
+  const lines = dictStr.split('\n');
+  lines.forEach(line => {
+    const idx = line.indexOf(':');
+    if (idx !== -1) {
+      const key = line.substring(0, idx).trim();
+      const value = line.substring(idx + 1).trim();
+      if (key && value) {
+        try {
+          const escapedKey = key.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+          const regex = new RegExp('\\b' + escapedKey + '\\b', 'gi');
+          processed = processed.replace(regex, (match) => {
+            if (match === match.toUpperCase()) return value.toUpperCase();
+            if (match[0] === match[0].toUpperCase()) {
+              return value.charAt(0).toUpperCase() + value.slice(1);
+            }
+            return value;
+          });
+        } catch(e) {
+          processed = processed.split(key).join(value);
+        }
+      }
+    }
+  });
+  return processed;
+};
+
 /* ── Dynamic Business Profile Variables (Shared Memory across Agents) ── */
 window.BUSINESS_VARIABLES = {
   industry: "[Industry Name, e.g., NGO and Non-Profit]",
   CompanySize: "[Expected number of employees, eg. 250-500 employees]",
   CompanyTurnover: "[Expected turnover for this company, eg. $5M / year]",
   BusinessConcern: "[Summarise the concern coming from the discussion with the agent, eg. Want to know the how multi entity are managed]",
+  TerminologyDictionary: "Turnover: revenue",
   journalVendorName: "[Typical operational vendor name, e.g., World Relief Logistics]",
   journalHighRiskName: "[Typical vague description tag, e.g., Unallocated Grant Disbursement]",
   journalApprovalName: "[Typical corporate control title, e.g., Program Manager Review]",
@@ -189,22 +190,30 @@ window.renderBusinessVarsForm = function() {
   
   let html = '';
   
-  // 1. First, render the BusinessConcern field at the very top as a larger textarea
+  // 1. First, render the BusinessConcern and TerminologyDictionary fields at the very top as larger textareas
   const concernValue = window.BUSINESS_VARIABLES['BusinessConcern'] || '';
+  const dictionaryValue = window.BUSINESS_VARIABLES['TerminologyDictionary'] || 'Turnover: revenue';
   html += `
     <div class="business-var-field" style="display: flex; flex-direction: column; gap: 4px; grid-column: span 2;">
       <label style="font-size: 11px; color: rgba(255,255,255,0.6); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Business Concern</label>
       <textarea class="settings-input" data-key="BusinessConcern" rows="4" style="font-size: 12px; padding: 8px 10px; width: 100%; box-sizing: border-box; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-family: 'Inter', sans-serif; resize: vertical; line-height: 1.4;">${concernValue}</textarea>
     </div>
+    <div class="business-var-field" style="display: flex; flex-direction: column; gap: 4px; grid-column: span 2; margin-top: 4px;">
+      <label style="font-size: 11px; color: rgba(255,255,255,0.6); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Terminology Dictionary (YAML)</label>
+      <textarea class="settings-input" data-key="TerminologyDictionary" rows="3" placeholder="e.g.&#10;Turnover: revenue" style="font-size: 12px; padding: 8px 10px; width: 100%; box-sizing: border-box; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-family: 'JetBrains Mono', monospace; resize: vertical; line-height: 1.4;">${dictionaryValue}</textarea>
+    </div>
   `;
 
   // 2. Then, render the rest of the business variables
   for (const [key, value] of Object.entries(window.BUSINESS_VARIABLES)) {
-    if (key === 'BusinessConcern') continue; // Already rendered at the top
+    if (key === 'BusinessConcern' || key === 'TerminologyDictionary') continue; // Already rendered at the top
     
     let label = key;
     if (key === 'CompanySize') label = 'Company Size';
-    else if (key === 'CompanyTurnover') label = 'Company Turnover';
+    else if (key === 'CompanyTurnover') {
+      const translatedTerm = typeof window.applyTerminology === 'function' ? window.applyTerminology('Turnover') : 'Turnover';
+      label = 'Company ' + translatedTerm.charAt(0).toUpperCase() + translatedTerm.slice(1);
+    }
     else if (key === 'journalVendorName') label = 'Typical Vendor Name';
     else if (key === 'journalHighRiskName') label = 'Vague/High-Risk Description';
     else if (key === 'journalApprovalName') label = 'Control/Approval Title';
@@ -246,7 +255,7 @@ const TABS_CONTENT = [
                 <!-- Chatbot Pane -->
                 <div class="chatbot-pane glow-green-border" style="display: flex; flex-direction: column; height: 100%; box-sizing: border-box;">
                   <div class="chatbot-header" style="flex-shrink: 0;">
-                    <img src="${copilotLogo}" alt="Copilot" style="width: 20px; height: 20px;" />
+                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" style="width: 20px; height: 20px;" />
                     <span>Try the assurance agent</span>
                   </div>
                   <div class="chat-messages-container" id="assuranceChatMessages" style="display: flex; flex-direction: column; gap: 8px; max-height: 230px; overflow-y: auto; padding-right: 4px; margin-bottom: 8px; flex-grow: 1; min-height: 160px;">
@@ -290,7 +299,7 @@ const TABS_CONTENT = [
                 <!-- Chatbot Pane -->
                 <div class="chatbot-pane glow-purple-border">
                   <div class="chatbot-header">
-                    <img src="${copilotLogo}" alt="Copilot" style="width: 20px; height: 20px;" />
+                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" style="width: 20px; height: 20px;" />
                     <span>Try the close agent</span>
                   </div>
                   <div class="chat-bubble-ai">
@@ -1034,13 +1043,6 @@ function getConcernSuggestedButtonText() {
     return "Review subscription revenue triggers";
   }
   
-  // If there's an anomaly from Agent 2, use it
-  const anomalies = window.CURRENT_AUDIT_ANOMALIES || [];
-  const savingAnomaly = anomalies.find(a => a.id === "anomaly-saving" || a.type === "success");
-  if (savingAnomaly) {
-    return "Review " + savingAnomaly.title;
-  }
-  
   // Try to summarize the first 3 words
   const words = concern.trim().split(/\s+/);
   if (words.length > 0) {
@@ -1114,8 +1116,11 @@ function initAssuranceAgentChatbot() {
       if (msg.sender === 'ai') {
         const div = document.createElement('div');
         div.className = 'chat-bubble-ai';
-        div.innerHTML = msg.text.replace(/\n/g, '<br/>');
+        const translatedText = typeof window.applyTerminology === 'function' ? window.applyTerminology(msg.text) : msg.text;
+        div.innerHTML = translatedText.replace(/\n/g, '<br/>');
         container.appendChild(div);
+
+        const isAnalyzing = msg.text.toLowerCase().includes('analyzing');
 
         // Detect anomaly association to add an inline scroll button inside the chat bubble
         let assocAnomalyId = msg.anomalyId || "";
@@ -1132,9 +1137,15 @@ function initAssuranceAgentChatbot() {
           }
         }
 
+        const btnContainer = document.createElement('div');
+        btnContainer.style.marginTop = '10px';
+        btnContainer.style.display = 'flex';
+        btnContainer.style.flexWrap = 'wrap';
+        btnContainer.style.gap = '8px';
+
+        let hasScrollBtn = false;
         if (assocAnomalyId) {
           const btn = document.createElement('button');
-          btn.style.marginTop = '10px';
           btn.style.display = 'inline-flex';
           btn.style.alignItems = 'center';
           btn.style.gap = '6px';
@@ -1148,27 +1159,80 @@ function initAssuranceAgentChatbot() {
           btn.style.transition = 'all 0.2s';
           
           let actionLabel = "Scroll & Highlight";
+          let clickHandler = (e) => {
+            e.preventDefault();
+            window.selectAuditAnomaly(assocAnomalyId);
+          };
+
+          let shouldRenderBtn = true;
+
           if (assocAnomalyId === 'anomaly-saving') {
             btn.style.backgroundColor = '#16a34a';
             actionLabel = "🔍 Scroll to Saving Entry";
+            hasScrollBtn = true;
           } else if (assocAnomalyId === 'anomaly-manual-cash') {
-            btn.style.backgroundColor = '#dc2626';
-            actionLabel = "🔍 Scroll to Critical Risk";
+            if (idx > 0 && !isAnalyzing) {
+              btn.style.backgroundColor = 'var(--theme-buttons-btn-primary-alt-bg, #008146)'; // Jade accessible green
+              btn.style.color = 'var(--theme-buttons-btn-primary-alt-text, #ffffff)';
+              btn.style.borderRadius = '100px'; // Oval style
+              btn.style.padding = '6px 14px';
+              btn.style.gap = '0';
+              actionLabel = "Take a product tour";
+              clickHandler = (e) => {
+                e.preventDefault();
+                if (typeof window.openProductTourModal === 'function') {
+                  window.openProductTourModal();
+                }
+              };
+            } else {
+              shouldRenderBtn = false;
+            }
           } else if (assocAnomalyId === 'anomaly-concern') {
             btn.style.backgroundColor = '#d97706';
             const shortLabel = getConcernSuggestedButtonText() || "Review business concern";
             actionLabel = "🔍 Scroll to " + shortLabel;
+            hasScrollBtn = true;
           } else {
             btn.style.backgroundColor = '#d97706';
             actionLabel = "🔍 Scroll to Threshold Bypass";
+            hasScrollBtn = true;
           }
           
-          btn.innerHTML = actionLabel;
-          btn.addEventListener('click', (e) => {
+          if (shouldRenderBtn) {
+            btn.innerHTML = actionLabel;
+            btn.addEventListener('click', clickHandler);
+            btnContainer.appendChild(btn);
+          }
+        }
+
+        // If we didn't just render the solid Jade Product Tour button (anomaly-manual-cash),
+        // we append a beautiful Jade green outline Product Tour button as well!
+        // ONLY show after the agent has answered (idx > 0)
+        if (idx > 0 && !isAnalyzing && assocAnomalyId !== 'anomaly-manual-cash') {
+          const tourBtn = document.createElement('button');
+          tourBtn.style.display = 'inline-flex';
+          tourBtn.style.alignItems = 'center';
+          tourBtn.style.fontSize = '11px';
+          tourBtn.style.fontWeight = '600';
+          tourBtn.style.padding = '5px 13px';
+          tourBtn.style.borderRadius = '100px'; // Oval style
+          tourBtn.style.border = '1px solid var(--theme-buttons-btn-secondary-alt-outline, #008146)';
+          tourBtn.style.backgroundColor = 'transparent';
+          tourBtn.style.color = 'var(--theme-buttons-btn-secondary-alt-text, #008146)';
+          tourBtn.style.cursor = 'pointer';
+          tourBtn.style.transition = 'all 0.2s';
+          tourBtn.innerHTML = "Take a product tour";
+          tourBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.selectAuditAnomaly(assocAnomalyId);
+            if (typeof window.openProductTourModal === 'function') {
+              window.openProductTourModal();
+            }
           });
-          div.appendChild(btn);
+          btnContainer.appendChild(tourBtn);
+        }
+
+        if (btnContainer.childNodes.length > 0) {
+          div.appendChild(btnContainer);
         }
 
         const isLatestAi = (idx === window.assuranceChatHistory.length - 1);
@@ -1228,7 +1292,7 @@ function initAssuranceAgentChatbot() {
               matchedId = 'anomaly-manual-cash';
             } else if (userQuery.includes('threshold') || userQuery.includes('bypass') || userQuery.includes('limit')) {
               matchedId = 'anomaly-threshold';
-            } else if (userQuery.includes('operational efficiency') || userQuery.includes('surgical supplies') || userQuery.includes('surgical mesh') || userQuery.includes('st. jude') || userQuery.includes('vouchers') || userQuery.includes('force-balance') || userQuery.includes('compliance') || (getConcernSuggestedButtonText() && userQuery.includes(getConcernSuggestedButtonText().toLowerCase()))) {
+            } else if (userQuery.includes('operational efficiency') || userQuery.includes('operation efficiency') || userQuery.includes('surgical supplies') || userQuery.includes('surgical mesh') || userQuery.includes('st. jude') || userQuery.includes('vouchers') || userQuery.includes('force-balance') || userQuery.includes('compliance') || userQuery.includes('efficiency') || userQuery.includes('operational') || (getConcernSuggestedButtonText() && userQuery.includes(getConcernSuggestedButtonText().toLowerCase()))) {
               matchedId = 'anomaly-concern';
             }
           }
@@ -1249,12 +1313,16 @@ function initAssuranceAgentChatbot() {
             const badgeColor = anom.type === 'error' ? 'red' : (anom.type === 'success' ? 'green' : 'orange');
             const badgeLabel = anom.type === 'error' ? 'CRITICAL RISK' : (anom.type === 'success' ? 'SAVING OPPORTUNITY' : 'NEEDS MONITORING');
             
+            // Clean redundant prefix from the title
+            let cleanTitle = anom.title || "";
+            cleanTitle = cleanTitle.replace(/^(Needs Monitoring|Critical Risk|Saving Opportunity|Risk Alert):\s*/i, '');
+
             card.innerHTML = `
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <span class="anomaly-badge ${badgeColor}">${badgeLabel}</span>
                 <span style="font-size: 9px; opacity: 0.6; font-family: monospace;">#${aIdx + 1}</span>
               </div>
-              <div class="anomaly-title" style="font-family: 'Space Grotesk', sans-serif; font-weight: 600;">${anom.title}</div>
+              <div class="anomaly-title" style="font-family: 'Space Grotesk', sans-serif; font-weight: 600;">${cleanTitle}</div>
               <div class="anomaly-desc">${anom.description}</div>
             `;
             
@@ -1287,8 +1355,8 @@ function initAssuranceAgentChatbot() {
 
   async function handleUserSend(text) {
     if (!text) return;
-    const apiKey = getSavedApiKey();
-    const selectedModel = getSavedModel();
+    const apiKey = localStorage.getItem('gemini_api_key') || atob('QVEuQWI4Uk42SnhZNTM5LXRpMkdlUlpWVk9YMm9waWFJeGF3V3FQbVlvczIzOEtNMjdTQkE=');
+    const selectedModel = localStorage.getItem('gemini_model') || 'models/gemini-3.1-flash-lite';
     console.log("handleUserSend: calling model", selectedModel);
     
     window.assuranceChatHistory.push({ sender: 'user', text });
@@ -1365,6 +1433,10 @@ The data table visible to the user replaces old generic errors with explicit col
 
 STRICT REDUNDANCY EXCLUSION RULE:
 - Do NOT include any text, headers, tags or copy matching '[Critical Risk: Manual Cash Adjustment detected]', '[Needs Monitoring: Unauthorized Procurement Flag]', or '[Saving Opportunity: Cost Optimization Flag]' in your text response. These are already displayed as UI elements and any inclusion in your text is highly redundant and strictly forbidden.
+
+TERMINOLOGY TRANSLATION DICTIONARY:
+- Respect any terminology replacements defined in the "TerminologyDictionary" business variable.
+- For example, if "Turnover: revenue" is specified, you must ALWAYS translate any occurrence of "Turnover" to "revenue" in all your answers, explanations, descriptions, and analyses. If other replacements are defined in the key-value format "Key: Value", apply them contextually.
 
 You must adapt to three distinct conversational interaction modes based on user prompts:
 
@@ -3391,18 +3463,14 @@ IMPORTANT:
   if (!panel) return;
 
   // Load API Key and selected model
-  const savedKey = getSavedApiKey();
+  const savedKey = localStorage.getItem('gemini_api_key') || atob('QVEuQWI4Uk42SnhZNTM5LXRpMkdlUlpWVk9YMm9waWFJeGF3V3FQbVlvczIzOEtNMjdTQkE=');
   if (apiKeyInput) apiKeyInput.value = savedKey;
   
   // Set default model on page load if not set
-  try {
-    if (!localStorage.getItem('gemini_model')) {
-      localStorage.setItem('gemini_model', 'models/gemini-3.1-flash-lite');
-    }
-  } catch (e) {
-    console.warn(e);
+  if (!localStorage.getItem('gemini_model')) {
+    localStorage.setItem('gemini_model', 'models/gemini-3.1-flash-lite');
   }
-  const savedModel = getSavedModel();
+  const savedModel = localStorage.getItem('gemini_model') || 'models/gemini-3.1-flash-lite';
   if (modelSelect) {
     const existingOptions = Array.from(modelSelect.options).map(o => o.value);
     if (!existingOptions.includes(savedModel)) {
@@ -3466,7 +3534,7 @@ IMPORTANT:
             opt.textContent = `${m.name} (${m.displayName || ''})`;
             modelSelect.appendChild(opt);
           });
-          const currSaved = getSavedModel();
+          const currSaved = localStorage.getItem('gemini_model') || 'models/gemini-1.5-flash';
           if (filtered.find(m => m.name === currSaved)) {
             modelSelect.value = currSaved;
           } else if (filtered.length > 0) {
@@ -3654,13 +3722,9 @@ IMPORTANT:
     saveApiKeyBtn.addEventListener('click', () => {
       const key = apiKeyInput.value.trim();
       const selected = modelSelect ? modelSelect.value : '';
-      try {
-        localStorage.setItem('gemini_api_key', key);
-        if (selected) {
-          localStorage.setItem('gemini_model', selected);
-        }
-      } catch (e) {
-        console.warn("Could not save settings to localStorage:", e);
+      localStorage.setItem('gemini_api_key', key);
+      if (selected) {
+        localStorage.setItem('gemini_model', selected);
       }
       addSystemMessage('Settings saved locally!');
       settingsModal.classList.remove('is-open');
@@ -3768,7 +3832,7 @@ IMPORTANT:
   function addBotMessage(text) {
     const bubble = document.createElement('div');
     bubble.className = 'chat-msg chat-msg--bot';
-    bubble.innerHTML = text;
+    bubble.innerHTML = typeof window.applyTerminology === 'function' ? window.applyTerminology(text) : text;
     chatMessages.appendChild(bubble);
     // Disable autoscroll on agent answer
   }
@@ -3797,9 +3861,9 @@ IMPORTANT:
       return;
     }
 
-    const key = getSavedApiKey();
+    const key = localStorage.getItem('gemini_api_key') || atob('QVEuQWI4Uk42SnhZNTM5LXRpMkdlUlpWVk9YMm9waWFJeGF3V3FQbVlvczIzOEtNMjdTQkE=');
     if (key && key.trim()) {
-      const modelName = getSavedModel();
+      const modelName = localStorage.getItem('gemini_model') || 'models/gemini-3.1-flash-lite';
       addSystemMessage(`talking to your personalisation agent`);
       await callGeminiAgent(userText, key.trim());
     } else {
@@ -3809,7 +3873,7 @@ IMPORTANT:
 
   // ── Gemini 3.1 Flash Lite API Call ─────────────────────────
   async function callGeminiAgent(userText, apiKey) {
-    const selectedModel = getSavedModel();
+    const selectedModel = localStorage.getItem('gemini_model') || 'models/gemini-3.1-flash-lite';
     try {
       const history = [];
       const chatNodes = chatMessages.querySelectorAll('.chat-msg');
@@ -3999,6 +4063,15 @@ businessVariables:
           window.updateBusinessVarsDisplay();
         }
 
+        // Sync sessionState based on updated BUSINESS_VARIABLES
+        if (window.BUSINESS_VARIABLES.industry && !window.BUSINESS_VARIABLES.industry.includes('[')) {
+          sessionState.industry = window.BUSINESS_VARIABLES.industry;
+        }
+        if (window.BUSINESS_VARIABLES.CompanySize && !window.BUSINESS_VARIABLES.CompanySize.includes('[')) {
+          sessionState.size = window.BUSINESS_VARIABLES.CompanySize;
+        }
+        renderQuickSuggestions();
+
         if (parsed && parsed.action === 'personalize') {
           if (parsed.businessVariables) {
             Object.assign(parsed, parsed.businessVariables);
@@ -4020,10 +4093,18 @@ businessVariables:
         }
       } else {
         addBotMessage(reply);
+        // Sync sessionState based on updated BUSINESS_VARIABLES when no codeblock returned
+        if (window.BUSINESS_VARIABLES.industry && !window.BUSINESS_VARIABLES.industry.includes('[')) {
+          sessionState.industry = window.BUSINESS_VARIABLES.industry;
+        }
+        if (window.BUSINESS_VARIABLES.CompanySize && !window.BUSINESS_VARIABLES.CompanySize.includes('[')) {
+          sessionState.size = window.BUSINESS_VARIABLES.CompanySize;
+        }
+        renderQuickSuggestions();
       }
 
     } catch (err) {
-      const model = getSavedModel();
+      const model = localStorage.getItem('gemini_model') || 'models/gemini-3.1-flash-lite';
       addSystemMessage('API Error: ' + err.message + '. Falling back to local simulation.');
       if (window.logAgentInteraction) {
         window.logAgentInteraction(
@@ -4338,6 +4419,18 @@ window.openProductTourModal = function() {
   const rowSize = document.getElementById('tourViewSizeRow');
   const rowTurnover = document.getElementById('tourViewTurnoverRow');
   const emptyMsg = document.getElementById('tourEmptyVarsMsg');
+
+  // Dynamic label translation
+  const labelTurnover = typeof window.applyTerminology === 'function' ? window.applyTerminology('Turnover') : 'Turnover';
+  const labelTurnoverCap = labelTurnover.charAt(0).toUpperCase() + labelTurnover.slice(1);
+  const labelElem1 = document.getElementById('tourViewTurnoverLabel');
+  if (labelElem1) {
+    labelElem1.textContent = labelTurnoverCap + ':';
+  }
+  const labelElem2 = document.getElementById('tourInputTurnoverLabel');
+  if (labelElem2) {
+    labelElem2.textContent = labelTurnoverCap;
+  }
 
   // Check if anything is non-empty
   const hasData = (concern && !concern.includes('[Summarise the concern')) || 

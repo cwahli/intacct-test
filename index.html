@@ -596,7 +596,7 @@
                 <!-- Chatbot Pane -->
                 <div class="chatbot-pane glow-green-border">
                   <div class="chatbot-header">
-                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" class="copilot-header-icon" style="width:24px;height:24px;">
+                    <div class="chatbot-icon-circle">S+</div>
                     <span>Try the assurance agent</span>
                   </div>
                   <div class="chat-bubble-ai">
@@ -677,7 +677,7 @@
                 <!-- Chatbot Pane -->
                 <div class="chatbot-pane glow-purple-border">
                   <div class="chatbot-header">
-                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" class="copilot-header-icon" style="width:24px;height:24px;">
+                    <div class="chatbot-icon-circle" style="background:#9417ED; color:#FFFFFF;">S+</div>
                     <span>Try the close agent</span>
                   </div>
                   <div class="chat-bubble-ai">
@@ -1085,7 +1085,7 @@
               <span id="tourViewSize" style="font-family: 'Sage Text', sans-serif; font-size: 13px; color: #1B1B1B; font-weight: 500;"></span>
             </div>
             <div id="tourViewTurnoverRow" style="display: none; flex-direction: column; gap: 2px;">
-              <span style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Turnover:</span>
+              <span id="tourViewTurnoverLabel" style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Turnover:</span>
               <span id="tourViewTurnover" style="font-family: 'Sage Text', sans-serif; font-size: 13px; color: #1B1B1B; font-weight: 500;"></span>
             </div>
           </div>
@@ -1110,7 +1110,7 @@
               <input id="tourInputSize" type="text" style="font-family: 'Sage Text', sans-serif; font-size: 13px; padding: 8px 12px; border: 1px solid #C6C6C6; border-radius: 8px; width: 100%; box-sizing: border-box; color: #000; background: #fff;">
             </div>
             <div style="display: flex; flex-direction: column; gap: 4px;">
-              <label style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Turnover</label>
+              <label id="tourInputTurnoverLabel" style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Turnover</label>
               <input id="tourInputTurnover" type="text" style="font-family: 'Sage Text', sans-serif; font-size: 13px; padding: 8px 12px; border: 1px solid #C6C6C6; border-radius: 8px; width: 100%; box-sizing: border-box; color: #000; background: #fff;">
             </div>
           </div>
@@ -1155,7 +1155,7 @@
     </div>
   </div>
 
-  <script type="module" src="./src/Assets/index.js"></script>
+  <script src="./src/Assets/index.js"></script>
 
 
 </body></html>

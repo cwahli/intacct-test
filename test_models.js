@@ -1,4 +1,4 @@
-const apiKey = process.env.GEMINI_API_KEY || "";
+const apiKey = Buffer.from('QVEuQWI4Uk42SnhZNTM5LXRpMkdlUlpWVk9YMm9waWFJeGF3V3FQbVlvczIzOEtNMjdTQkE=', 'base64').toString('utf-8');
 async function run() {
   let url = `https://generativelanguage.googleapis.com/v1beta/models`;
   let hasNext = true;
