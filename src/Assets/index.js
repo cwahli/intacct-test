@@ -2,12 +2,37 @@
    SAGE INTACCT — INTERACTIVE ENGINE v15
    Bento styles: Stripe & Apple cards with unified clean white background
    Fully interactive elements with explanatory click events
-// Pre-populate default Gemini API Key and 3.1 Lite model if not already set
-if (!localStorage.getItem('gemini_api_key')) {
-  localStorage.setItem('gemini_api_key', atob('QVEuQWI4Uk42SnhZNTM5LXRpMkdlUlpWVk9YMm9waWFJeGF3V3FQbVlvczIzOEtNMjdTQkE='));
+   ================================================================ */
+
+const defaultApiKeyEncoded = 'QVEuQWI4Uk42SnhZNTM5LXRpMkdlUlpWVk9YMm9waWFJeGF3V3FQbVlvczIzOEtNMjdTQkE=';
+const defaultModelName = 'models/gemini-3.1-flash-lite';
+
+function getSavedApiKey() {
+  try {
+    return localStorage.getItem('gemini_api_key') || atob(defaultApiKeyEncoded);
+  } catch (e) {
+    return atob(defaultApiKeyEncoded);
+  }
 }
-if (!localStorage.getItem('gemini_model')) {
-  localStorage.setItem('gemini_model', 'models/gemini-3.1-flash-lite');
+
+function getSavedModel() {
+  try {
+    return localStorage.getItem('gemini_model') || defaultModelName;
+  } catch (e) {
+    return defaultModelName;
+  }
+}
+
+// Pre-populate default Gemini API Key and 3.1 Lite model if not already set
+try {
+  if (!localStorage.getItem('gemini_api_key')) {
+    localStorage.setItem('gemini_api_key', atob(defaultApiKeyEncoded));
+  }
+  if (!localStorage.getItem('gemini_model')) {
+    localStorage.setItem('gemini_model', defaultModelName);
+  }
+} catch (e) {
+  console.warn("Storage access not allowed or failed:", e);
 }
 
 // Password Protection logic
@@ -1260,8 +1285,8 @@ function initAssuranceAgentChatbot() {
 
   async function handleUserSend(text) {
     if (!text) return;
-    const apiKey = localStorage.getItem('gemini_api_key') || '';
-    const selectedModel = localStorage.getItem('gemini_model') || 'models/gemini-3.1-flash-lite';
+    const apiKey = getSavedApiKey();
+    const selectedModel = getSavedModel();
     console.log("handleUserSend: calling model", selectedModel);
     
     window.assuranceChatHistory.push({ sender: 'user', text });
@@ -3364,14 +3389,18 @@ IMPORTANT:
   if (!panel) return;
 
   // Load API Key and selected model
-  const savedKey = localStorage.getItem('gemini_api_key') || '';
+  const savedKey = getSavedApiKey();
   if (apiKeyInput) apiKeyInput.value = savedKey;
   
   // Set default model on page load if not set
-  if (!localStorage.getItem('gemini_model')) {
-    localStorage.setItem('gemini_model', 'models/gemini-3.1-flash-lite');
+  try {
+    if (!localStorage.getItem('gemini_model')) {
+      localStorage.setItem('gemini_model', 'models/gemini-3.1-flash-lite');
+    }
+  } catch (e) {
+    console.warn(e);
   }
-  const savedModel = localStorage.getItem('gemini_model') || 'models/gemini-3.1-flash-lite';
+  const savedModel = getSavedModel();
   if (modelSelect) {
     const existingOptions = Array.from(modelSelect.options).map(o => o.value);
     if (!existingOptions.includes(savedModel)) {
@@ -3435,7 +3464,7 @@ IMPORTANT:
             opt.textContent = `${m.name} (${m.displayName || ''})`;
             modelSelect.appendChild(opt);
           });
-          const currSaved = localStorage.getItem('gemini_model') || 'models/gemini-1.5-flash';
+          const currSaved = getSavedModel();
           if (filtered.find(m => m.name === currSaved)) {
             modelSelect.value = currSaved;
           } else if (filtered.length > 0) {
@@ -3623,9 +3652,13 @@ IMPORTANT:
     saveApiKeyBtn.addEventListener('click', () => {
       const key = apiKeyInput.value.trim();
       const selected = modelSelect ? modelSelect.value : '';
-      localStorage.setItem('gemini_api_key', key);
-      if (selected) {
-        localStorage.setItem('gemini_model', selected);
+      try {
+        localStorage.setItem('gemini_api_key', key);
+        if (selected) {
+          localStorage.setItem('gemini_model', selected);
+        }
+      } catch (e) {
+        console.warn("Could not save settings to localStorage:", e);
       }
       addSystemMessage('Settings saved locally!');
       settingsModal.classList.remove('is-open');
@@ -3762,9 +3795,9 @@ IMPORTANT:
       return;
     }
 
-    const key = localStorage.getItem('gemini_api_key') || '';
+    const key = getSavedApiKey();
     if (key && key.trim()) {
-      const modelName = localStorage.getItem('gemini_model') || 'models/gemini-3.1-flash-lite';
+      const modelName = getSavedModel();
       addSystemMessage(`talking to your personalisation agent`);
       await callGeminiAgent(userText, key.trim());
     } else {
@@ -3774,7 +3807,7 @@ IMPORTANT:
 
   // ── Gemini 3.1 Flash Lite API Call ─────────────────────────
   async function callGeminiAgent(userText, apiKey) {
-    const selectedModel = localStorage.getItem('gemini_model') || 'models/gemini-3.1-flash-lite';
+    const selectedModel = getSavedModel();
     try {
       const history = [];
       const chatNodes = chatMessages.querySelectorAll('.chat-msg');
@@ -3988,7 +4021,7 @@ businessVariables:
       }
 
     } catch (err) {
-      const model = localStorage.getItem('gemini_model') || 'models/gemini-3.1-flash-lite';
+      const model = getSavedModel();
       addSystemMessage('API Error: ' + err.message + '. Falling back to local simulation.');
       if (window.logAgentInteraction) {
         window.logAgentInteraction(
