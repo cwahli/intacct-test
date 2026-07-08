@@ -1031,6 +1031,8 @@ function getConcernSuggestedButtonText() {
   if (!concern || concern.includes('[') || concern.trim() === '') return null;
   
   const lower = concern.toLowerCase();
+  
+  // Specific keyword mappings
   if (lower.includes('automate') || lower.includes('operational efficiency') || lower.includes('healthcare') || lower.includes('hospital')) {
     return "Review operational efficiency";
   } else if (lower.includes('multi-entity') || lower.includes('multi entity') || lower.includes('visibility')) {
@@ -1041,16 +1043,35 @@ function getConcernSuggestedButtonText() {
     return "Review subcontractor advances";
   } else if (lower.includes('saas') || lower.includes('subscription') || lower.includes('revenue')) {
     return "Review subscription revenue triggers";
+  } else if (lower.includes('aws') || lower.includes('hosting') || lower.includes('duplicate')) {
+    return "Review duplicate hosting costs";
+  } else if (lower.includes('marketing') || lower.includes('retainer') || lower.includes('saving')) {
+    return "Review marketing retainer options";
+  }
+
+  // If there's a saving opportunity in the anomalies list, reference it
+  const savingAnomaly = (window.CURRENT_AUDIT_ANOMALIES || []).find(a => a.id === 'anomaly-saving' || a.type === 'success');
+  if (savingAnomaly && savingAnomaly.title) {
+    return "Review " + savingAnomaly.title.toLowerCase();
   }
   
-  // Try to summarize the first 3 words
-  const words = concern.trim().split(/\s+/);
+  // Clean up filler prefixes from the concern before extracting words
+  let cleanConcern = concern.trim()
+    .replace(/^(the\s+)?business\s+(is|facing|dealing\s+with|wants\s+to|needs\s+to)\s+/i, '')
+    .replace(/^(the\s+)?company\s+(is|facing|dealing\s+with|wants\s+to|needs\s+to)\s+/i, '')
+    .replace(/^we\s+(are|face|deal\s+with|want\s+to|need\s+to)\s+/i, '')
+    .replace(/^user\s+(is|wants\s+to|needs\s+to)\s+/i, '')
+    .replace(/^(facing|dealing\s+with|concerned\s+about)\s+/i, '');
+
+  const words = cleanConcern.trim().split(/\s+/);
   if (words.length > 0) {
     const cleanWords = words.slice(0, 3).map(w => w.replace(/[^a-zA-Z0-9]/g, ''));
-    if (cleanWords.join(' ').trim() !== "") {
-      return "Review " + cleanWords.join(' ');
+    const label = cleanWords.join(' ').trim();
+    if (label !== "" && !/^(the|is|are|we|a|an)$/i.test(label)) {
+      return "Review " + label;
     }
   }
+  
   return "Review business concern";
 }
 window.getConcernSuggestedButtonText = getConcernSuggestedButtonText;
