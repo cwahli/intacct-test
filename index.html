@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)./index.html# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sage Intacct — the cloud financial management solution powered by AI agents. Reconcile AP, automate close, and scale with visibility and control.">
+  <title>Sage Intacct — Agentic Financial Software, Built to Scale</title>
+  <link rel="stylesheet" href="./src/Assets/design-tokens.css">
+  <link rel="stylesheet" href="./src/Assets/index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+</head>
+<body>
+
+  <!-- Password Protection Overlay -->
+  
+
+  <!-- ═══════════════════════════════════════════════════════════
+       GLOBAL TOP NAV — Black background, Sage logo
+  ═══════════════════════════════════════════════════════════ -->
+  <nav class="top-nav">
+    <div class="container top-nav__inner">
+      <div class="top-nav__left">
+        <a href="./index.html#" class="top-nav__logo">
+          <img src="./src/Assets/Sage_logo.svg" alt="Sage logo" height="26">
+        </a>
+        <ul class="top-nav__links">
+          <li><a href="./index.html#">Products &amp; Solutions</a></li>
+          <li><a href="./index.html#">Accountants</a></li>
+          <li><a href="./index.html#">Partners</a></li>
+          <li><a href="./index.html#">Blog</a></li>
+          <li><a href="./index.html#">Support</a></li>
+        </ul>
+      </div>
+      <div class="top-nav__right">
+        <button class="top-nav__search" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button class="btn btn-outline-white btn-sm">Login</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PRODUCT SUB NAV — S4 Background (1B1B1B), Right-Aligned Menu
+  ═══════════════════════════════════════════════════════════ -->
+  <nav class="sub-nav">
+    <div class="container sub-nav__inner">
+      <!-- Left side: Brand Icon + Title next to it (H5 size / 18px) -->
+      <a href="./index.html#" class="sub-nav__brand">
+        <img src="./src/Assets/Sage Intacct.svg" alt="Sage Intacct icon" width="28" height="28" class="sub-nav__logo-icon">
+        <span class="sub-nav__product-name">Sage Intacct</span>
+      </a>
+      
+      <!-- Right aligned group containing menu links AND contact/CTA button -->
+      <div class="sub-nav__right-group">
+        <ul class="sub-nav__links">
+          <li><a href="./index.html#product" class="is-active">Overview</a></li>
+          <li><a href="./index.html#scenes">Product capabilities</a></li>
+          <li><a href="./index.html#platform">Extended capabilities</a></li>
+          <li><a href="./index.html#platform">Industry</a></li>
+          <li><a href="./index.html#demo">Partners</a></li>
+          <li class="nav-dropdown">
+            <a href="./index.html#" class="dots-icon">•••</a>
+            <div class="nav-dropdown-menu">
+              <a href="./assurance.html" target="_blank" style="color: var(--primary-colors-brilliant-green); font-weight: bold;">Assurance Agent ↗</a>
+            </div>
+          </li>
+        </ul>
+        
+        <div class="sub-nav__actions">
+          <a href="tel:1-877-437-7765" class="sub-nav__phone">
+            <img src="./src/Assets/call.svg" alt="Phone" width="14" height="14" class="phone-icon-svg">
+            1-877-437-7765
+          </a>
+          <a href="./index.html#demo" class="btn btn-green btn-sm">Request pricing</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO — Agentic Financial Software, Built to Scale
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="hero" id="product">
+    <div class="hero__bg">
+      <div class="glow glow--blue"></div>
+      <div class="glow glow--green"></div>
+      <div class="glow glow--purple"></div>
+    </div>
+
+    <div class="hero__inner container">
+      <!-- Title & Kicker & Subtitle -->
+      <div class="hero__header">
+        <div class="hero__kicker">Rated #1 on G2 for ease of use</div>
+        <h1 class="hero__h1"><span class="text-grad">Agentic financial software</span>, built to scale</h1>
+        <p class="hero__sub">Sage Intacct is the end-to-end financial solution powered by AI agents — built for the visibility, control, and auditability finance teams demand as their business grows.</p>
+        <!-- Email Capture Pill -->
+        <div class="hero__email-capture" id="heroEmailCapture">
+          <input type="email" id="heroEmailInput" placeholder="Start with your email" aria-label="Email address">
+          <button id="heroTakeTourBtn" class="btn btn-green">Take product tour</button>
+        </div>
+      </div>
+
+      <!-- Main Animated Graphic Frame -->
+      <div class="hero__visual-frame" id="visualFrame">
+        
+        <!-- Uncropped Glow.png positioned behind the left column UI viewport only -->
+        <div class="ui-glow-layer"></div>
+        
+        <div class="hero__visual-grid">
+          
+          <!-- LEFT SIDE: Translucent 38% White Opacity Glass Card (with 16px Padding) -->
+          <div class="hero__ui-wrapper-card" id="uiWrapperCard">
+            
+            <!-- Inner Viewport: Solid UI Dashboard -->
+            <div class="hero__screen-viewport has-copilot-sidebar" id="screenViewport">
+              
+              <!-- Viewport Top Bar (Fake Window Chrome with Copilot Toggle) -->
+              <div class="viewport-header">
+                <div class="viewport-header__left"></div>
+                <div class="viewport-header__right">
+                  <div class="viewport-copilot-toggle" id="viewportCopilotToggle">
+                    <div class="copilot-btn-circle">
+                      <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" class="copilot-btn-img">
+                    </div>
+                  </div>
+                  <div class="viewport-header__pill">
+                    <div class="viewport-header__pill-inner"></div>
+                  </div>
+                  <div class="viewport-header__avatar"></div>
+                </div>
+              </div>
+
+              <!-- ──────── STEP 1 ANIMATION SCREENS ──────── -->
+              <!-- Screen 1a: Checklist -->
+              <div class="screen-card screen-card--checklist" id="screenChecklist">
+                <div class="checklist-page-title">Close checklist: Month end close</div>
+                
+                <!-- General Information Card -->
+                <div class="checklist-info-card">
+                  <div class="info-card__title">General Information</div>
+                  <div class="info-card__grid">
+                    <div class="info-cell">
+                      <span class="info-label">Checklist name</span>
+                      <span class="info-val">Month end close</span>
+                    </div>
+                    <div class="info-cell">
+                      <span class="info-label">Reporting period</span>
+                      <span class="info-val">Month ended July</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Close Tasks Card -->
+                <div class="checklist-tasks-card">
+                  <div class="tasks-card__title">Close tasks</div>
+                  <div class="tasks-table-wrapper">
+                    <table class="tasks-table">
+                      <thead>
+                        <tr>
+                          <th>Task category</th>
+                          <th>Task</th>
+                          <th id="thTaskOwner">Task owner</th>
+                          <th>Start date</th>
+                          <th>Due date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>A/R</td>
+                          <td class="text-green-link">Import transactions from sales</td>
+                          <td><div class="placeholder-pill"></div></td>
+                          <td><div class="placeholder-pill"></div></td>
+                          <td><div class="placeholder-pill"></div></td>
+                        </tr>
+                        <tr>
+                          <td>A/R</td>
+                          <td class="text-green-link">Manually create and send AR</td>
+                          <td><div class="placeholder-pill"></div></td>
+                          <td><div class="placeholder-pill"></div></td>
+                          <td><div class="placeholder-pill"></div></td>
+                        </tr>
+                        <tr>
+                          <td>A/R</td>
+                          <td class="text-green-link">Review unposted invoices</td>
+                          <td><div class="placeholder-pill"></div></td>
+                          <td><div class="placeholder-pill"></div></td>
+                          <td><div class="placeholder-pill"></div></td>
+                        </tr>
+                        <tr>
+                          <td>A/R</td>
+                          <td class="text-green-link">Prepare AR reconciliation</td>
+                          <td><div class="placeholder-pill"></div></td>
+                          <td><div class="placeholder-pill"></div></td>
+                          <td><div class="placeholder-pill"></div></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 1b: AP Reconciliation Report -->
+              <div class="screen-card screen-card--ap ap-unreconciled screen-card--active" id="screenAP">
+                <div class="screen-card__header-ap">
+                  <div class="ap-header__left">
+                    <h3 class="ap-header__title">AP subledger reconciliation</h3>
+                    <div class="ap-header__location">Location: E200--Union Health</div>
+                  </div>
+                  <div class="ap-header__right">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" class="settings-cog">
+                      <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"></path>
+                    </svg>
+                  </div>
+                </div>
+                
+                <div class="ap-table-wrapper">
+                  <table class="ap-table">
+                    <thead>
+                      <tr>
+                        <th>Account Number</th>
+                        <th>Account Name</th>
+                        <th class="text-right">Opening balance on June</th>
+                        <th class="text-right">Debit</th>
+                        <th class="text-right">Credit</th>
+                        <th class="text-right">Closing balance on July</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>2000</td>
+                        <td>Accounts Payable</td>
+                        <td class="text-right text-muted">-$328,268.71</td>
+                        <td class="text-right text-blue reconciled-val" id="clickDebitLink">$215,759.55</td>
+                        <td class="text-right text-blue reconciled-val">$168,788.41</td>
+                        <td class="text-right text-muted reconciled-val">-$281,297.57</td>
+                      </tr>
+                      <tr class="totals-row">
+                        <td>Totals:</td>
+                        <td></td>
+                        <td class="text-right">-$328,268.71</td>
+                        <td class="text-right reconciled-val">$215,759.55</td>
+                        <td class="text-right reconciled-val">$168,788.41</td>
+                        <td class="text-right reconciled-val">-$281,297.57</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+                <div class="ap-variance-row">
+                  Subledger to GL variance <span class="variance-val">$1,345.44</span>
+                </div>
+              </div>
+
+              <!-- Copilot Sidebar (Step 1) -->
+              <div class="screen-copilot-card" id="screenCopilot">
+                <div class="copilot-header">
+                  <div class="copilot-header__left">
+                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" class="copilot-header-icon">
+                    <span class="copilot-title">Copilot</span>
+                  </div>
+                  <div class="copilot-header__right">
+                    <span class="copilot-header-btn" title="Minimise">
+                      <img src="./src/Assets/chevron_down.svg" alt="Minimise">
+                    </span>
+                    <span class="copilot-header-btn" title="Close">
+                      <img src="./src/Assets/close.svg" alt="Close">
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="copilot-tabs">
+                  <button class="copilot-tab copilot-tab--active">
+                    <span class="tab-dot"></span>
+                    <img src="./src/Assets/Sparkle_white_background.svg" alt="Insights" style="width: 14px; height: 14px;"> Insights
+                  </button>
+                  <button class="copilot-tab">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Chat history
+                  </button>
+                </div>
+                
+                <div class="copilot-body">
+                  <!-- Sub-screen 1: Close Assistant -->
+                  <div class="copilot-sub-screen copilot-sub-screen--hidden" id="copilotCloseAssistant">
+                    <h4 class="copilot-section-title">Close assistant</h4>
+                    <div class="copilot-meta-row">Reporting period: July</div>
+                    
+                    <div class="copilot-group">
+                      <h5 class="copilot-group-title">
+                        Accounts Payable
+                        <svg class="sync-icon" viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"></path></svg>
+                      </h5>
+                      <div class="copilot-list">
+                        <div class="copilot-list-item">
+                          <span class="item-status-icon item-status-icon--warn">!</span>
+                          <span class="item-text">Review unposted bills</span>
+                        </div>
+                        <div class="copilot-list-item copilot-list-item--interactive copilot-list-item--indented" id="copilotPrepareAPLink">
+                          <span class="item-text text-link">Prepare AP reconciliation</span>
+                        </div>
+                        <div class="copilot-list-item">
+                          <span class="item-status-icon item-status-icon--warn">!</span>
+                          <span class="item-text">Close AP</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="copilot-group">
+                      <h5 class="copilot-group-title">
+                        Accounts Receivable
+                        <svg class="sync-icon" viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"></path></svg>
+                      </h5>
+                      <div class="copilot-list">
+                        <div class="copilot-list-item copilot-list-item--indented">
+                          <span class="item-text text-link">Review unposted invoices</span>
+                        </div>
+                        <div class="copilot-list-item copilot-list-item--indented">
+                          <span class="item-text text-link">Prepare AR reconciliation</span>
+                        </div>
+                        <div class="copilot-list-item">
+                          <span class="item-status-icon item-status-icon--check">✓</span>
+                          <span class="item-text">Close AR</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Sub-screen 2: Variance Report -->
+                  <div class="copilot-sub-screen" id="copilotVarianceReport">
+                    <h4 class="copilot-prompt-title" id="copilotPromptText">Variance calculated between AP Ledger and General Ledger</h4>
+                    <div class="copilot-table-wrapper" id="copilotTableWrapper">
+                      <table class="copilot-table">
+                        <thead>
+                          <tr>
+                            <th>Entity</th>
+                            <th>AP balance</th>
+                            <th>GL balance</th>
+                            <th>Variance</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="row-e100">
+                            <td id="entity-e100">E100</td>
+                            <td id="ap-e100"><span class="blue-underline" id="ap-balance-e100">177,732</span></td>
+                            <td id="gl-e100"><span class="blue-underline" id="gl-balance-e100">177,732</span></td>
+                            <td id="var-e100"><span class="blue-underline" id="var-val-e100">0.00</span></td>
+                          </tr>
+                          <tr class="row-e200">
+                            <td id="entity-e200">E200</td>
+                            <td id="ap-e200"><span class="blue-underline" id="ap-balance-e200">282,643</span></td>
+                            <td id="gl-e200"><span class="blue-underline" id="gl-balance-e200">281,298</span></td>
+                            <td id="var-e200"><span class="text-red" id="var-val-e200">1,345</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="copilot-footer-text">
+                      The first 5 entities are displayed, please review the <span class="text-link">AP Ledger report</span> for more details.
+                    </div>
+                    <div class="copilot-placeholders">
+                      <div class="placeholder-line" style="width: 90%;"></div>
+                      <div class="placeholder-line" style="width: 75%;"></div>
+                      <div class="placeholder-line" style="width: 85%;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ──────── STEP 2 ANIMATION SCREENS ──────── -->
+              <!-- Screen 2: Invoice Processing Match -->
+              <div class="screen-card screen-card--invoice" id="screenInvoice">
+                <div class="screen-card__header-ap">
+                  <div class="ap-header__left">
+                    <h3 class="ap-header__title">Invoice matching agent</h3>
+                    <div class="ap-header__location" id="invoiceHeaderLocation">Invoice: #INV-88902 -- Union Health Supplies</div>
+                  </div>
+                  <div class="ap-header__right">
+                    <span class="screen-card__badge" id="invoiceBadge">Validating</span>
+                  </div>
+                </div>
+                
+                <div class="invoice-container">
+                  <div class="invoice-details-grid">
+                    <div class="invoice-field">
+                      <label>Vendor Name</label>
+                      <div class="field-value" id="invoiceVendorName">Union Health Supplies</div>
+                    </div>
+                    <div class="invoice-field">
+                      <label>Invoice Amount</label>
+                      <div class="field-value font-bold" id="invoiceAmount">$12,450.00</div>
+                    </div>
+                  </div>
+                  
+                  <div class="match-checklist">
+                    <div class="match-row match-row--success" id="matchRowPO">
+                      <div class="match-row__left">
+                        <div class="match-dot match-dot--success" id="matchDotPO"></div>
+                        <span id="invoiceMatchItem1">Purchase Order Validation (PO-7701)</span>
+                      </div>
+                      <span class="match-status match-status--success" id="matchStatusPO">Matched</span>
+                    </div>
+                    <div class="match-row match-row--success" id="matchRowRec">
+                      <div class="match-row__left">
+                        <div class="match-dot match-dot--success" id="matchDotRec"></div>
+                        <span id="invoiceMatchItem2">Receiving Log Matching</span>
+                      </div>
+                      <span class="match-status match-status--success" id="matchStatusRec">Matched</span>
+                    </div>
+                  </div>
+                  
+                  <div class="match-badge match-badge--active" id="invoiceApprovedBadge">Approved by Invoice Agent</div>
+                </div>
+
+                <div class="screen-copilot-card" id="copilotInvoice">
+                  <div class="copilot-header">
+                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" class="copilot-logo-img">
+                    <span class="copilot-title">Copilot</span>
+                  </div>
+                  <div class="copilot-prompt" id="copilotInvoiceText"></div>
+                  <div class="copilot-invoice-stats" id="copilotInvoiceStats">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+                      <span>Automated Matches:</span>
+                      <span class="font-bold text-success">90.2%</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between;">
+                      <span>Manual Queue:</span>
+                      <span class="font-bold text-muted">9.8%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ──────── STEP 3 ANIMATION SCREENS ──────── -->
+              <!-- Screen 3: ROI payback -->
+              <div class="screen-card screen-card--roi" id="screenROI">
+                <div class="screen-card__header-ap">
+                  <div class="ap-header__left">
+                    <h3 class="ap-header__title">Investment Payback Analysis</h3>
+                    <div class="ap-header__location">Cumulative savings and payback metrics</div>
+                  </div>
+                </div>
+                
+                <div class="roi-container">
+                  <div class="roi-metric-row">
+                    <div class="roi-metric-card">
+                      <div class="roi-metric-val" id="roiMetricPeriod">5.8</div>
+                      <div class="roi-metric-label" id="roiMetricPeriodLabel">Payback Period</div>
+                    </div>
+                    <div class="roi-metric-card">
+                      <div class="roi-metric-val" id="roiMetricSavings">$145K</div>
+                      <div class="roi-metric-label" id="roiMetricSavingsLabel">Net Savings</div>
+                    </div>
+                  </div>
+                  
+                  <div class="roi-chart">
+                    <div class="roi-bar-row">
+                      <span class="bar-label">Month 2</span>
+                      <div class="bar-track"><div class="bar-fill" id="roiBar1" style="width: 25%;"></div></div>
+                    </div>
+                    <div class="roi-bar-row">
+                      <span class="bar-label">Month 4</span>
+                      <div class="bar-track"><div class="bar-fill" id="roiBar2" style="width: 60%;"></div></div>
+                    </div>
+                    <div class="roi-bar-row">
+                      <span class="bar-label">Month 6</span>
+                      <div class="bar-track"><div class="bar-fill" id="roiBar3" style="width: 100%; background: var(--primary-colors-brilliant-green);"></div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="screen-copilot-card" id="copilotROI">
+                  <div class="copilot-header">
+                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" class="copilot-logo-img">
+                    <span class="copilot-title">Copilot</span>
+                  </div>
+                  <div class="copilot-prompt" id="copilotROIText"></div>
+                </div>
+              </div>
+
+              <!-- Custom pointer cursor -->
+              <div class="mock-cursor" id="mockCursor" style="opacity: 0; left: 453.5px; top: 211.75px;"></div>
+              
+            </div>
+            
+          </div>
+          
+          <!-- RIGHT SIDE: Playlist Steps -->
+          <div class="hero__visual-steps">
+            <!-- Step 1 -->
+            <div class="visual-step visual-step--active" id="step1">
+              <svg class="visual-step__border-svg">
+                <defs>
+                  <lineargradient id="aiGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#00D639"></stop>
+                    <stop offset="50%" stop-color="#0077FF"></stop>
+                    <stop offset="100%" stop-color="#9417ED"></stop>
+                  </lineargradient>
+                </defs>
+                <rect class="visual-step__border-rect" id="stepBorderRect1" x="-0.5" y="-0.5" width="319" height="59" rx="30" ry="30" fill="none" stroke="url(#aiGradient1)" stroke-width="3" stroke-dasharray="800" stroke-dashoffset="800" style="stroke-dasharray: 704.626; stroke-dashoffset: 155.999;"></rect>
+              </svg>
+              
+              <div class="visual-step__inner">
+                <div class="visual-step__icon-wrapper">
+                  <span class="visual-step__status-icon" id="stepIcon1">⏸</span>
+                </div>
+                <div class="visual-step__content">
+                  <div class="visual-step__title"><span class="visual-step__title--bold">Close the books in days,</span> <span class="text-regular">not weeks</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="visual-step" id="step2">
+              <svg class="visual-step__border-svg">
+                <defs>
+                  <lineargradient id="aiGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#00D639"></stop>
+                    <stop offset="50%" stop-color="#0077FF"></stop>
+                    <stop offset="100%" stop-color="#9417ED"></stop>
+                  </lineargradient>
+                </defs>
+                <rect class="visual-step__border-rect" id="stepBorderRect2" x="-0.5" y="-0.5" width="319" height="59" rx="30" ry="30" fill="none" stroke="url(#aiGradient2)" stroke-width="3" stroke-dasharray="800" stroke-dashoffset="800" style="stroke-dasharray: 704.626; stroke-dashoffset: 704.626;"></rect>
+              </svg>
+              
+              <div class="visual-step__inner">
+                <div class="visual-step__icon-wrapper">
+                  <span class="visual-step__status-icon" id="stepIcon2">▶</span>
+                </div>
+                <div class="visual-step__content">
+                  <div class="visual-step__title">Up to <strong>90% reduction</strong> in manual tasks</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="visual-step" id="step3">
+              <svg class="visual-step__border-svg">
+                <defs>
+                  <lineargradient id="aiGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#00D639"></stop>
+                    <stop offset="50%" stop-color="#0077FF"></stop>
+                    <stop offset="100%" stop-color="#9417ED"></stop>
+                  </lineargradient>
+                </defs>
+                <rect class="visual-step__border-rect" id="stepBorderRect3" x="-0.5" y="-0.5" width="319" height="59" rx="30" ry="30" fill="none" stroke="url(#aiGradient3)" stroke-width="3" stroke-dasharray="800" stroke-dashoffset="800" style="stroke-dasharray: 704.626; stroke-dashoffset: 704.626;"></rect>
+              </svg>
+              
+              <div class="visual-step__inner">
+                <div class="visual-step__icon-wrapper">
+                  <span class="visual-step__status-icon" id="stepIcon3">▶</span>
+                </div>
+                <div class="visual-step__content">
+                  <div class="visual-step__title">Payback in as little as <strong>6 months</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       STATS STRIP
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="pillars-wrap" id="platform">
+    <div class="container">
+      <div class="pillars-tabs-container">
+        <div class="pillars-tabs" id="ptabsRow">
+          <button class="ptab is-active" data-ptab="0">Financials</button>
+          <button class="ptab" data-ptab="1">Industry</button>
+          <button class="ptab" data-ptab="2">Connected</button>
+          <button class="ptab" data-ptab="3">Platform</button>
+        </div>
+      </div>
+
+      <h2 class="pillars-title">Save time and elevate your work with <span class="ai-gradient-text">AI agents</span> &amp; automation &amp; intelligent financials</h2>
+      <p class="pillars-subtitle">Shift from manual work to <span class="text-green-highlight">AI-powered</span> workflows across AP, AR, cash, close, and more—so your team can focus on higher impact activities.</p>
+      
+      <div class="pillars-hero-buttons">
+        <button class="btn-explore">Explore core financials</button>
+        <a class="link-tour">Take a product tour ➔</a>
+      </div>
+      
+      <div class="ptab-panel" id="ptabPanel">
+        <div class="ptab-panel-grid" id="ptabPanelGrid">
+          <div class="dark-bento-grid">
+            <!-- Card 1: Assurance agent -->
+            <div class="dark-bento-card glow-green">
+              <h3 class="card-header-title">Assurance agent</h3>
+              <div class="assurance-card-body">
+                <!-- Chatbot Pane -->
+                <div class="chatbot-pane glow-green-border">
+                  <div class="chatbot-header">
+                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" class="copilot-header-icon" style="width:24px;height:24px;">
+                    <span>Try the assurance agent</span>
+                  </div>
+                  <div class="chat-bubble-ai">
+                    I monitor your books continuously and flags anomalies and risks before they come problems.
+                  </div>
+                  <div class="chat-messages-container" style="display: flex; flex-direction: column; gap: 8px; max-height: 230px; overflow-y: auto; padding-right: 4px; margin-bottom: 8px; flex-grow: 1; min-height: 160px;"></div>
+                  <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 8px; flex-shrink: 0;">
+                    <div class="chat-bubble-suggested">Are there any anomalies lately?</div>
+                  </div>
+                  <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" placeholder="Enter your question..." />
+                    <button class="chat-send-btn">➤</button>
+                  </div>
+                </div>
+
+                <!-- Journal Entry Pane -->
+                <div class="journal-pane">
+                  <h4 class="journal-pane-title">Journal Entry</h4>
+                  <div id="journalScrollContainer" style="overflow-y: auto; max-height: 310px; width: 100%; border-radius: 8px; border: 1px solid #E2E8F0; padding-right: 4px;">
+                    <table class="journal-mini-table">
+                      <thead style="position: sticky; top: 0; background: #FFFFFF; z-index: 10;">
+                        <tr>
+                          <th>Account</th>
+                          <th>Description</th>
+                          <th>Entity</th>
+                          <th>Txn a...</th>
+                        </tr>
+                      </thead>
+                      <tbody id="journalTableBody">
+                        <!-- Dynamic rows rendered programmatically, these are fallback -->
+                        <tr>
+                          <td>1312 - Inter-entity Receivable</td>
+                          <td>Auto-elimination</td>
+                          <td>Elimination</td>
+                          <td>5,00...</td>
+                        </tr>
+                      <tr>
+                        <td>1801 - Investment in Subsidiary</td>
+                        <td>Auto-elimination</td>
+                        <td>Elimination</td>
+                        <td>150,...</td>
+                      </tr>
+                      <tr>
+                        <td>2105 - Inter-entity Payable</td>
+                        <td>Auto-elimination</td>
+                        <td>Elimination</td>
+                        <td>5,00...</td>
+                      </tr>
+                      <tr>
+                        <td>3301 - Contributed Capital</td>
+                        <td>Auto-elimination</td>
+                        <td>Elimination</td>
+                        <td>150,...</td>
+                      </tr>
+                      <tr>
+                        <td>3601 - Elim Variance</td>
+                        <td>Auto-elim: Adjustment...</td>
+                        <td>Elimination</td>
+                        <td>155,...</td>
+                      </tr>
+                      <tr>
+                        <td>3601 - Elim Variance</td>
+                        <td>Auto-elim: Adjustment...</td>
+                        <td>Elimination</td>
+                        <td>55,0...</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Close agents -->
+            <div class="dark-bento-card glow-purple">
+              <h3 class="card-header-title">Close agents</h3>
+              <div class="close-card-body">
+                <!-- Chatbot Pane -->
+                <div class="chatbot-pane glow-purple-border">
+                  <div class="chatbot-header">
+                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" class="copilot-header-icon" style="width:24px;height:24px;">
+                    <span>Try the close agent</span>
+                  </div>
+                  <div class="chat-bubble-ai">
+                    Tracks close tasks, flags blockers early, and helps teams close faster every period with confidence.
+                  </div>
+                  <div class="chat-messages-container" style="display: flex; flex-direction: column; gap: 8px; max-height: 230px; overflow-y: auto; padding-right: 4px; margin-bottom: 8px; flex-grow: 1; min-height: 160px;"></div>
+                  <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 8px; flex-shrink: 0;">
+                    <div class="chat-bubble-suggested">Are there any anomalies lately?</div>
+                  </div>
+                  <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" placeholder="Enter your question..." />
+                    <button class="chat-send-btn">➤</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: AP subledger reconciliation -->
+            <div class="dark-bento-card glow-purple">
+              <h3 class="card-header-title">AP subledger reconciliation</h3>
+              <div class="ap-reconciliation-pane">
+                <div class="ap-pane-title">AP subledger reconciliation</div>
+                <div class="ap-pane-subtitle">Location: E200--Union Health</div>
+                
+                <table class="ap-mini-table">
+                  <thead>
+                    <tr>
+                      <th>Account Number</th>
+                      <th>Account Name</th>
+                      <th>Opening balance on June</th>
+                      <th>Debit</th>
+                      <th>Credit</th>
+                      <th>Closing balance on July</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2000</td>
+                      <td>Accounts Payable</td>
+                      <td>(328,268.71)</td>
+                      <td style="color:#0077FF;">215,759.55</td>
+                      <td style="color:#0077FF;">168,788.41</td>
+                      <td>(281,297.57)</td>
+                    </tr>
+                    <tr style="font-weight: 700;">
+                      <td>Totals:</td>
+                      <td></td>
+                      <td>(328,268.71)</td>
+                      <td style="color:#0077FF;">215,759.55</td>
+                      <td style="color:#0077FF;">168,788.41</td>
+                      <td>(281,297.57)</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!-- Copilot Overlapping Card -->
+                <div class="ap-copilot-card">
+                  <div class="ap-copilot-header">
+                    <span class="ap-copilot-header-icon">✦</span>
+                    <span>Copilot</span>
+                  </div>
+                  <div class="ap-copilot-title">Variance calculated between AP Ledger and General Ledger</div>
+                  <table class="ap-copilot-table">
+                    <thead>
+                      <tr>
+                        <th>Entity</th>
+                        <th>AP balance</th>
+                        <th>GL balance</th>
+                        <th>Variance</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>E100</td>
+                        <td><span style="text-decoration: underline; color:#0077FF;">177,732</span></td>
+                        <td><span style="text-decoration: underline; color:#0077FF;">177,732</span></td>
+                        <td>0.00</td>
+                      </tr>
+                      <tr>
+                        <td>E200</td>
+                        <td><span style="text-decoration: underline; color:#0077FF;">282,643</span></td>
+                        <td><span style="text-decoration: underline; color:#0077FF;">281,298</span></td>
+                        <td><span class="ap-copilot-variance">1,345</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="ap-copilot-footer">The first 5 entities are displayed, please review the</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       AI YOU CAN TRUST (Finance AI built for auditability)
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="audit-section" id="auditSection">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--primary-colors-accessible-jade);margin-bottom:12px">AI you can trust</div>
+        <h2 style="font-family:var(--font-h);font-size:34px;font-weight:900;letter-spacing:-0.5px;color:var(--primary-colors-black);margin-bottom:14px">Finance AI built for auditability</h2>
+        <p style="font-size:16px;color:var(--gray-scale-gray-s1);max-width:600px;margin: 0 auto;line-height:1.6">Sage Intacct provides a secure AI infrastructure where explainability, compliance governance, and comprehensive transaction logs keep your finance operations transparent.</p>
+      </div>
+      
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card__icon">✓</div>
+          <h3 class="audit-card__h">Every answer is explainable</h3>
+          <p class="audit-card__body">Every answer shows its work. Know exactly how the system arrived at its answer. Interrogate any result.</p>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card__icon">🛡</div>
+          <h3 class="audit-card__h">Every action stays governed</h3>
+          <p class="audit-card__body">Human approval is always required. Agents operate within your pre-defined controls and limits.</p>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card__icon">⚙</div>
+          <h3 class="audit-card__h">Every output has a trail</h3>
+          <p class="audit-card__body">Every AI action is logged with full provenance, tracking the agent's name alongside the human who authorized it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INDUSTRY SPECIFIC EXTRA SECTION (Matching Copy Deck Page 2 & 3)
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="vertical-industry-section" style="padding:80px 0; background:var(--primary-colors-white); border-bottom: 1px solid var(--gray-scale-gray-t5);">
+    <div class="container">
+      <div style="max-width: 760px; margin-bottom: 48px;">
+        <h2 style="font-family:var(--font-h); font-size:34px; font-weight:900; letter-spacing:-0.5px; color:var(--primary-colors-black); margin-bottom:16px;">
+          Purpose-built for your industry's complexity
+        </h2>
+        <p style="font-size:16px; color:var(--gray-scale-gray-s1); line-height:1.6;">
+          Go beyond generic financial systems. Sage Intacct has built-in, industry-specific workflows, reporting, and compliance capabilities designed for your industry.
+        </p>
+      </div>
+
+      <div class="industry-bento-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap:28px;">
+        <!-- Left: Product Tour Bento Card -->
+        <div class="bento-card bento-card--entity" style="height:340px; padding:36px; justify-content:space-between;">
+          <div>
+            <div class="bento-card__sub-title" style="color:rgba(255,255,255,0.7)">Product tour bento</div>
+            <h3 class="bento-card__title" style="color:var(--primary-colors-white)">See Sage Intacct in your industry</h3>
+            <p style="font-size:13.5px; color:rgba(255,255,255,0.8); margin-top:8px;">Select your vertical to explore custom dashboards and workflow metrics built specifically for your operations.</p>
+          </div>
+          <div style="display:flex; gap:12px; align-items:center;">
+            <select style="background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.25); color:white; padding:10px 18px; border-radius:8px; font-family:var(--font-b); font-size:13px; font-weight:600; outline:none; cursor:pointer;">
+              <option style="color:black;" value="saas">SaaS &amp; Software</option>
+              <option style="color:black;" value="healthcare">Healthcare &amp; Medical</option>
+              <option style="color:black;" value="nonprofit">Non-Profit &amp; Charities</option>
+              <option style="color:black;" value="construction">Construction &amp; Real Estate</option>
+            </select>
+            <button class="btn btn-green btn-sm" onclick="alert(&#39;Redirecting to vertical product tour form.&#39;)">See Sage Intacct</button>
+          </div>
+        </div>
+
+        <!-- Right: Testimonial/Awards Bento Card -->
+        <div class="bento-card bento-card--controls" style="height:340px; padding:36px; justify-content:space-between;">
+          <div>
+            <div class="bento-card__sub-title" style="color:rgba(255,255,255,0.5)">Customer Success</div>
+            <h3 class="bento-card__title">Trusted by 30,000 finance teams</h3>
+            <p style="font-size:13.5px; color:rgba(255,255,255,0.7); margin-top:8px;">Empowering growing enterprises worldwide to close faster, automate manual entries, and gain real-time visibility.</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:16px;">
+            <div style="text-align:left;">
+              <div style="font-size:24px; font-weight:900; color:var(--primary-colors-brilliant-green)">5X ROI</div>
+              <div style="font-size:11px; color:rgba(255,255,255,0.5); text-transform:uppercase;">Average Payback</div>
+            </div>
+            <span class="bento-badge-illust">★ ★ ★ ★ ★ G2 Leader</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CTA
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="cta-wrap" id="demo">
+    <div class="container">
+      <div class="cta-block reveal">
+        <div>
+          <h2 class="cta-h">See Sage Intacct working with your data</h2>
+          <p class="cta-body">Our finance specialists will show you exactly how Sage Intacct's AI agents can transform your close cycle, AP process, and reporting — tailored to your organisation and vertical.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="./index.html#" class="btn-cta">Request personalised demo</a>
+          <button class="btn-cta-ghost" style="color:white;border-color:rgba(255,255,255,0.25)">Speak to a specialist →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copy">© 2025 Sage Group plc. All rights reserved. Sage Intacct is a registered trademark.</div>
+        <div class="footer__links">
+          <a href="./index.html#" class="footer__link">Privacy</a>
+          <a href="./index.html#" class="footer__link">Terms</a>
+          <a href="./index.html#" class="footer__link">Cookie Settings</a>
+          <a href="./index.html#" class="footer__link">Accessibility</a>
+          <a href="./index.html#" class="footer__link">Sitemap</a>
+        </div>
+      </div>
+      
+      <!-- Collapsible Styleguide Proof for inspection -->
+      <div class="styleguide-proof" style="margin-top: 24px; border-top: 1px solid var(--gray-scale-gray-t5); padding-top: 16px;">
+        <details style="font-size: 12px; color: var(--gray-scale-gray-s1); cursor: pointer;">
+          <summary style="font-weight: 700; color: var(--gray-scale-gray-s3);">✓ Style Guide Mapping Proof (Click to expand)</summary>
+          <div style="margin-top: 12px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; padding: 12px; background: var(--gray-scale-gray-t6); border-radius: 6px; text-align: left;">
+            <div>
+              <strong>Header Colors:</strong>
+              <ul>
+                <li>Top Navigation BG: #000000</li>
+                <li>Secondary Nav BG: #1B1B1B (S4)</li>
+                <li>Nav Link Font Color: rgba(255,255,255,0.9) (Primary White)</li>
+              </ul>
+            </div>
+            <div>
+              <strong>Sub Nav Layout:</strong>
+              <ul>
+                <li>Logo Element: Sage Intacct Icon SVG</li>
+                <li>Product Title Font: Sage Headline, 18px (H5)</li>
+                <li>Product Title Color: Primary White</li>
+                <li>Menu Alignment: Right-aligned</li>
+              </ul>
+            </div>
+            <div>
+              <strong>Typography Scale:</strong>
+              <ul>
+                <li>H5 (Nav Title): 18px</li>
+                <li>Display 3 / 4: 44px / 38px</li>
+                <li>Heading 1 / 2: 34px / 27px</li>
+                <li>Heading 3 / 4: 23px / 19px</li>
+                <li>Heading 5 / 6: 16px / 14px</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </div>
+      
+    </div>
+  </footer>
+
+  <!-- Floating AI Sparkle -->
+  <button id="aiSparkleToggle" aria-label="Open AI Assistant" class="ai-sparkle-btn is-visible">
+    ✦
+  </button>
+
+  <!-- Centered Floating Clickable Form Search Pill -->
+  <form class="hero__search-pill" id="askCopilotForm" action="./index.html#" method="GET">
+    <div class="hero__search-pill-inner">
+      <span class="hero__search-spark">✦</span>
+      <input type="text" class="hero__search-input" placeholder="Personalise your experience" aria-label="Ask Copilot">
+      <button type="submit" class="hero__search-send" aria-label="Send query">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+        </svg>
+      </button>
+    </div>
+  </form>
+
+  <!-- floating personalization chat panel -->
+  <div class="chat-panel" id="personalizationChatPanel">
+    <div class="chat-header">
+      <div class="chat-header__title">
+        <span class="chat-header__sparkle">✦</span>
+        <span>Sage AI Personalisation</span>
+      </div>
+      <div class="chat-header__actions">
+        <button class="chat-btn" id="chatBusinessVarsBtn" title="Business Variables" style="font-size: 15px; margin-right: 4px;">💼</button>
+        <button class="chat-btn" id="chatSettingsBtn" title="Set Gemini API Key">⚙️</button>
+        <button class="chat-btn" id="chatCloseBtn" title="Close Panel" style="font-size: 20px; line-height: 1;">×</button>
+      </div>
+    </div>
+
+    <!-- Messages Log -->
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg chat-msg--bot" id="personalizationWelcomeMsg">
+        Hi! I'm your Sage AI assistant. Let's customise this webpage for your business. What industry are you in?
+      </div>
+    </div>
+
+    <!-- Quick Suggestions Area (Dynamic) -->
+    <div id="personalizationSuggestions" style="padding: 6px 12px; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; background: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(255, 255, 255, 0.04);">
+      <!-- Buttons will be dynamically populated here -->
+    </div>
+
+    <!-- Input Area -->
+    <div class="chat-input-area">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Type a message..." autocomplete="off">
+      <button class="chat-send-btn" id="chatSendBtn">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="transform: rotate(0deg); display: block;">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Settings Modal Overlay inside Panel -->
+    <div class="chat-settings-modal" id="chatSettingsModal" style="overflow-y: auto;">
+      <div class="settings-title">API Connection Settings</div>
+      <div class="settings-label">API Key:</div>
+      <input type="password" class="settings-input" id="apiKeyInput" placeholder="Paste your API key here...">
+      <button class="settings-save-btn" id="fetchModelsBtn" style="margin-top: 8px; margin-bottom: 12px; font-size: 11px; padding: 6px 12px; width: auto; background: var(--primary-colors-accessible-jade); border: none; border-radius: 6px; cursor: pointer; color: white; display: block;">Fetch Available Models</button>
+      <div id="statusMessageContainer" style="font-size: 11px; margin-top: -8px; margin-bottom: 12px; color: var(--primary-colors-accessible-jade, #00D639);"></div>
+      
+      <div id="modelSelectContainer" style="display: block; margin-top: 12px;">
+        <div class="settings-label">Select Model:</div>
+        <select class="settings-input" id="modelSelect" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.15); padding: 8px 12px; border-radius: 6px; width: 100%; font-size: 13px; margin-bottom: 12px;"><option value="models/gemini-2.5-flash">models/gemini-2.5-flash (Gemini 2.5 Flash)</option><option value="models/gemini-2.5-pro">models/gemini-2.5-pro (Gemini 2.5 Pro)</option><option value="models/gemini-2.0-flash">models/gemini-2.0-flash (Gemini 2.0 Flash)</option><option value="models/gemini-2.0-flash-001">models/gemini-2.0-flash-001 (Gemini 2.0 Flash 001)</option><option value="models/gemini-2.0-flash-lite-001">models/gemini-2.0-flash-lite-001 (Gemini 2.0 Flash-Lite 001)</option><option value="models/gemini-2.0-flash-lite">models/gemini-2.0-flash-lite (Gemini 2.0 Flash-Lite)</option><option value="models/gemini-2.5-flash-preview-tts">models/gemini-2.5-flash-preview-tts (Gemini 2.5 Flash Preview TTS)</option><option value="models/gemini-2.5-pro-preview-tts">models/gemini-2.5-pro-preview-tts (Gemini 2.5 Pro Preview TTS)</option><option value="models/gemma-4-26b-a4b-it">models/gemma-4-26b-a4b-it (Gemma 4 26B A4B IT)</option><option value="models/gemma-4-31b-it">models/gemma-4-31b-it (Gemma 4 31B IT)</option><option value="models/gemini-flash-latest">models/gemini-flash-latest (Gemini Flash Latest)</option><option value="models/gemini-flash-lite-latest">models/gemini-flash-lite-latest (Gemini Flash-Lite Latest)</option><option value="models/gemini-pro-latest">models/gemini-pro-latest (Gemini Pro Latest)</option><option value="models/gemini-2.5-flash-lite">models/gemini-2.5-flash-lite (Gemini 2.5 Flash-Lite)</option><option value="models/gemini-2.5-flash-image">models/gemini-2.5-flash-image (Nano Banana)</option><option value="models/gemini-3-pro-preview">models/gemini-3-pro-preview (Gemini 3 Pro Preview)</option><option value="models/gemini-3-flash-preview">models/gemini-3-flash-preview (Gemini 3 Flash Preview)</option><option value="models/gemini-3.1-pro-preview">models/gemini-3.1-pro-preview (Gemini 3.1 Pro Preview)</option><option value="models/gemini-3.1-pro-preview-customtools">models/gemini-3.1-pro-preview-customtools (Gemini 3.1 Pro Preview Custom Tools)</option><option value="models/gemini-3.1-flash-lite-preview">models/gemini-3.1-flash-lite-preview (Gemini 3.1 Flash Lite Preview)</option><option value="models/gemini-3.1-flash-lite">models/gemini-3.1-flash-lite (Gemini 3.1 Flash Lite)</option><option value="models/gemini-3-pro-image-preview">models/gemini-3-pro-image-preview (Nano Banana Pro)</option><option value="models/gemini-3-pro-image">models/gemini-3-pro-image (Nano Banana Pro)</option><option value="models/nano-banana-pro-preview">models/nano-banana-pro-preview (Nano Banana Pro)</option><option value="models/gemini-3.1-flash-image-preview">models/gemini-3.1-flash-image-preview (Nano Banana 2)</option><option value="models/gemini-3.1-flash-image">models/gemini-3.1-flash-image (Nano Banana 2)</option><option value="models/gemini-3.1-flash-lite-image">models/gemini-3.1-flash-lite-image (Nano Banana 2 Lite)</option><option value="models/gemini-3.5-flash">models/gemini-3.5-flash (Gemini 3.5 Flash)</option><option value="models/gemini-omni-flash-preview">models/gemini-omni-flash-preview (Gemini Omni Flash Preview)</option><option value="models/lyria-3-clip-preview">models/lyria-3-clip-preview (Lyria 3 Clip Preview)</option><option value="models/lyria-3-pro-preview">models/lyria-3-pro-preview (Lyria 3 Pro Preview)</option><option value="models/gemini-3.1-flash-tts-preview">models/gemini-3.1-flash-tts-preview (Gemini 3.1 Flash TTS Preview)</option><option value="models/gemini-robotics-er-1.5-preview">models/gemini-robotics-er-1.5-preview (Gemini Robotics-ER 1.5 Preview)</option><option value="models/gemini-robotics-er-1.6-preview">models/gemini-robotics-er-1.6-preview (Gemini Robotics-ER 1.6 Preview)</option><option value="models/gemini-2.5-computer-use-preview-10-2025">models/gemini-2.5-computer-use-preview-10-2025 (Gemini 2.5 Computer Use Preview 10-2025)</option><option value="models/antigravity-preview-05-2026">models/antigravity-preview-05-2026 (Antigravity Agent Preview)</option><option value="models/deep-research-max-preview-04-2026">models/deep-research-max-preview-04-2026 (Deep Research Max Preview (Apr-21-2026))</option><option value="models/deep-research-preview-04-2026">models/deep-research-preview-04-2026 (Deep Research Preview (Apr-21-2026))</option><option value="models/deep-research-pro-preview-12-2025">models/deep-research-pro-preview-12-2025 (Deep Research Pro Preview (Dec-12-2025))</option></select>
+      </div>
+
+      <div style="font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 16px; line-height: 1.4;">
+        Note: The key is stored locally in your browser's localStorage and is used to call the selected model. If left empty, it runs in simulated demo mode.
+      </div>
+      <button class="settings-save-btn" id="saveApiKeyBtn">Save Settings</button>
+      <div style="text-align: center; margin-top: 14px; margin-bottom: 4px;">
+        <span id="viewChatLogLink" style="font-size: 12px; color: var(--primary-colors-accessible-jade, #00D639); text-decoration: underline; font-weight: 500; cursor: pointer;">view chat log</span>
+      </div>
+      <button class="chat-btn" id="closeSettingsBtn" style="margin-top: 8px; font-size: 12px; text-decoration: underline; color: rgba(255,255,255,0.5);">Back to Chat</button>
+    </div>
+
+    <!-- Business Variables Modal Overlay inside Panel -->
+    <div class="chat-settings-modal" id="chatBusinessVarsModal" style="overflow-y: auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <div class="settings-title" style="margin-bottom: 0;">Business Variables (Agent Context)</div>
+        <button id="closeBusinessVarsBtn" style="background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; padding: 0; line-height: 1;">×</button>
+      </div>
+      <div style="font-size: 11px; color: rgba(255,255,255,0.5); margin-bottom: 16px; line-height: 1.4;">
+        These parameters define how the AI agents customize and continuous-audit your financials. You can edit them manually, or the Personalisation Agent will automatically update them as you chat!
+      </div>
+      
+      <div id="businessVarsFormContainer" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+        <!-- Inputs will be dynamically generated here -->
+      </div>
+      
+      <button class="settings-save-btn" id="saveBusinessVarsBtn">Save Variables</button>
+      <button class="chat-btn" id="backToChatBusinessBtn" style="margin-top: 14px; font-size: 12px; text-decoration: underline; color: rgba(255,255,255,0.5); background: none; border: none; cursor: pointer; display: block; margin-left: auto; margin-right: auto;">Back to Chat</button>
+    </div>
+  </div>
+
+  <!-- Full Screen Chat Log Modal -->
+  <div class="chat-log-modal-overlay" id="chatLogModal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(10, 10, 12, 0.98); z-index: 100000; color: #FFFFFF; font-family: 'Inter', sans-serif; overflow-y: auto; padding: 40px 20px; box-sizing: border-box;">
+    <div style="max-width: 1000px; margin: 0 auto; width: 100%;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 20px; margin-bottom: 30px;">
+        <div>
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600; color: var(--primary-colors-accessible-jade, #00D639); margin: 0; letter-spacing: -0.5px;">Agent Interaction Payload &amp; Conversation Logs</h2>
+          <p style="color: rgba(255,255,255,0.5); margin: 6px 0 0 0; font-size: 13px; font-family: 'Inter', sans-serif;">Inspect complete request and response JSON payloads sent to and received from our AI Agents (Assurance &amp; Personalisation).</p>
+        </div>
+        <button id="closeChatLogModalBtn" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #FFFFFF; font-size: 14px; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif;">✕ Close Logs</button>
+      </div>
+
+      <div id="chatLogListContainer" style="display: flex; flex-direction: column; gap: 24px;">
+        <!-- Dynamic logs list will be populated here -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: 50px 20px; border-radius: 12px; text-align: center; color: rgba(255,255,255,0.4);">
+          <div style="font-size: 40px; margin-bottom: 15px;">🔍</div>
+          No agent interaction logs captured yet. Try chatting with the Personalisation Agent or the Assurance Agent first!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="productTourModalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(8px); z-index: 200000; align-items: center; justify-content: center; font-family: 'Sage Text', sans-serif;">
+    <div id="productTourModal" style="background: #ffffff; color: #000000; width: 100%; max-width: 580px; border-radius: 24px; padding: 36px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); box-sizing: border-box; position: relative; max-height: 90vh; overflow-y: auto;">
+      
+      <!-- Header -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
+        <div>
+          <h2 style="font-family: 'Sage Headline', sans-serif; font-weight: 900; font-size: 28px; line-height: 1.2; color: #000000; margin: 0;">Sage Intacct Product Tour</h2>
+          <p style="font-family: 'Sage Text', sans-serif; font-size: 14px; color: #5E5E5E; margin: 6px 0 0 0;">Experience our agentic continuous-accounting platform customized to your business profile.</p>
+        </div>
+        <button id="closeProductTourBtn" style="background: none; border: none; color: #000000; font-size: 28px; cursor: pointer; padding: 0; line-height: 1; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.6" onmouseout="this.style.opacity=1">×</button>
+      </div>
+
+      <!-- Section 1: What we know so far -->
+      <div id="tourWhatWeKnowSection" style="border-bottom: 1px solid #E2E2E2; padding-bottom: 24px; margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div>
+            <h3 style="font-family: 'Sage Headline', sans-serif; font-weight: 900; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: #000000; margin: 0;">What we know so far</h3>
+            <p style="font-family: 'Sage Text', sans-serif; font-size: 12px; color: #777777; margin: 2px 0 0 0;">We will use it to personalise your product tour</p>
+          </div>
+          <button id="editKnownVarsBtn" style="background: none; border: none; padding: 0; font-family: 'Sage Text', sans-serif; font-weight: 500; font-size: 13px; color: #0077FF; text-decoration: underline; cursor: pointer;">Edit</button>
+        </div>
+
+        <!-- READ-ONLY STATE (div with nice background) -->
+        <div id="tourKnownVarsView" style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+          <div id="tourViewConcernRow" style="display: none; flex-direction: column; gap: 4px;">
+            <span style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Business Concern:</span>
+            <p id="tourViewConcern" style="font-family: 'Sage Text', sans-serif; font-size: 14px; color: #1B1B1B; margin: 0; white-space: pre-wrap; line-height: 1.5;"></p>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+            <div id="tourViewIndustryRow" style="display: none; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Industry:</span>
+              <span id="tourViewIndustry" style="font-family: 'Sage Text', sans-serif; font-size: 13px; color: #1B1B1B; font-weight: 500;"></span>
+            </div>
+            <div id="tourViewSizeRow" style="display: none; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Company Size:</span>
+              <span id="tourViewSize" style="font-family: 'Sage Text', sans-serif; font-size: 13px; color: #1B1B1B; font-weight: 500;"></span>
+            </div>
+            <div id="tourViewTurnoverRow" style="display: none; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Turnover:</span>
+              <span id="tourViewTurnover" style="font-family: 'Sage Text', sans-serif; font-size: 13px; color: #1B1B1B; font-weight: 500;"></span>
+            </div>
+          </div>
+          <div id="tourEmptyVarsMsg" style="color: #777777; font-size: 13px; text-align: center; padding: 10px 0; font-family: 'Sage Text', sans-serif;">
+            No profile variables captured yet. Click Edit to add them!
+          </div>
+        </div>
+
+        <!-- EDITABLE STATE (hidden by default) -->
+        <div id="tourKnownVarsEdit" style="display: none; flex-direction: column; gap: 14px; background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 12px; padding: 16px;">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <label style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Business Concern</label>
+            <textarea id="tourInputConcern" rows="3" style="font-family: 'Sage Text', sans-serif; font-size: 13px; padding: 8px 12px; border: 1px solid #C6C6C6; border-radius: 8px; width: 100%; box-sizing: border-box; resize: vertical; line-height: 1.4; color: #000; background: #fff;"></textarea>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <label style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Industry</label>
+              <input id="tourInputIndustry" type="text" style="font-family: 'Sage Text', sans-serif; font-size: 13px; padding: 8px 12px; border: 1px solid #C6C6C6; border-radius: 8px; width: 100%; box-sizing: border-box; color: #000; background: #fff;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <label style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Company Size</label>
+              <input id="tourInputSize" type="text" style="font-family: 'Sage Text', sans-serif; font-size: 13px; padding: 8px 12px; border: 1px solid #C6C6C6; border-radius: 8px; width: 100%; box-sizing: border-box; color: #000; background: #fff;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <label style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Turnover</label>
+              <input id="tourInputTurnover" type="text" style="font-family: 'Sage Text', sans-serif; font-size: 13px; padding: 8px 12px; border: 1px solid #C6C6C6; border-radius: 8px; width: 100%; box-sizing: border-box; color: #000; background: #fff;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: About you -->
+      <div style="margin-bottom: 32px;">
+        <h3 style="font-family: 'Sage Headline', sans-serif; font-weight: 900; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: #000000; margin: 0 0 4px 0;">About you</h3>
+        <p style="font-family: 'Sage Text', sans-serif; font-size: 12px; color: #777777; margin: 0 0 16px 0;">so we know who we're talking to</p>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <label style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Full Name</label>
+              <input id="tourInputFullName" type="text" placeholder="e.g. Sarah Jenkins" style="font-family: 'Sage Text', sans-serif; font-size: 13px; padding: 10px 12px; border: 1px solid #C6C6C6; border-radius: 8px; width: 100%; box-sizing: border-box; color: #000; background: #fff;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <label style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Company or Organisation</label>
+              <input id="tourInputOrg" type="text" placeholder="e.g. Acme FinTech" style="font-family: 'Sage Text', sans-serif; font-size: 13px; padding: 10px 12px; border: 1px solid #C6C6C6; border-radius: 8px; width: 100%; box-sizing: border-box; color: #000; background: #fff;">
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <label style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Work Email</label>
+              <input id="tourInputEmail" type="email" placeholder="e.g. sarah@acme.com" style="font-family: 'Sage Text', sans-serif; font-size: 13px; padding: 10px 12px; border: 1px solid #C6C6C6; border-radius: 8px; width: 100%; box-sizing: border-box; color: #000; background: #fff;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <label style="font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #5E5E5E;">Business Phone</label>
+              <input id="tourInputPhone" type="tel" placeholder="e.g. +1 (555) 019-2834" style="font-family: 'Sage Text', sans-serif; font-size: 13px; padding: 10px 12px; border: 1px solid #C6C6C6; border-radius: 8px; width: 100%; box-sizing: border-box; color: #000; background: #fff;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Action Buttons -->
+      <div style="display: flex; flex-direction: row-reverse; gap: 12px; align-items: center;">
+        <button id="startProductTourBtn" class="btn" style="border-radius: 100px; padding: 12px 28px; font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 14px; border: none; cursor: pointer; background: var(--primary-colors-accessible-jade, #008146); color: #ffffff; line-height: 1.2; transition: filter 0.2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='none'">Start your personalised product tour</button>
+        <button id="cancelProductTourBtn" class="btn btn-outline-black" style="border-radius: 100px; padding: 12px 24px; font-family: 'Sage Text', sans-serif; font-weight: 700; font-size: 14px; border: 1px solid #000; background: transparent; color: #000; cursor: pointer; line-height: 1.2;">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="./src/Assets/index.js"></script>
+
+
+</body></html>

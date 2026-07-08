@@ -1,0 +1,88 @@
+import { useState } from "react";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import PaymentAnalysis from "./Product UI/Payment_analysis";
+import TrustCredibility from "./components/TrustCredibility";
+import ProductTourHub from "./components/ProductTourHub";
+import RoiCalculator from "./components/RoiCalculator";
+import Benefits from "./components/Benefits";
+import Testimonials from "./components/Testimonials";
+import LeadForm from "./components/LeadForm";
+import Footer from "./components/Footer";
+
+export default function App() {
+  const [selectedIndustryId, setSelectedIndustryId] = useState("saas");
+
+  const scrollToForm = () => {
+    const target = document.getElementById("sage-form");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const scrollToTour = () => {
+    const target = document.getElementById("sage-tour-hub");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleSelectIndustry = (id: string) => {
+    setSelectedIndustryId(id);
+  };
+
+  return (
+    <div className="min-h-screen bg-white text-gray-800 font-sans selection:bg-sage-100">
+      
+      {/* 1. Header Navigation */}
+      <Header onScrollToForm={scrollToForm} onScrollToTour={scrollToTour} />
+
+      {/* 2. Hero Section */}
+      <Hero
+        onScrollToTour={scrollToTour}
+        onScrollToForm={scrollToForm}
+        onSelectIndustry={handleSelectIndustry}
+      />
+
+    <section className="py-20 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#00141e] tracking-tight mb-4">
+            Payment Analysis Dashboard
+          </h2>
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+            Review your updated budget and take action on your payments through an AI-powered assistant.
+          </p>
+        </div>
+        <PaymentAnalysis />
+      </div>
+    </section>
+
+      {/* 3. Trust Symbols & Key Stats */}
+      <TrustCredibility />
+
+      {/* 4. Interactive Product Tour Hub */}
+      <ProductTourHub
+        onScrollToForm={scrollToForm}
+        selectedIndustryId={selectedIndustryId}
+        onSelectIndustry={handleSelectIndustry}
+      />
+
+      {/* 5. Interactive ROI Calculator */}
+      <RoiCalculator />
+
+      {/* 6. Product Benefits Grid */}
+      <Benefits />
+
+      {/* 7. Testimonials & Client Reviews */}
+      <Testimonials />
+
+      {/* 8. Lead Capture & Download Form */}
+      <LeadForm />
+
+      {/* 9. Footing Site Directory */}
+      <Footer />
+
+    </div>
+  );
+}

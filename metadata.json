@@ -1,0 +1,6 @@
+{
+  "name": "Sage Intacct Cloud Financials",
+  "description": "Interactive high-fidelity replication of Sage Intacct's premium product landing page and custom industry product tour hub.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
