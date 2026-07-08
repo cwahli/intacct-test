@@ -4,6 +4,8 @@
    Fully interactive elements with explanatory click events
    ================================================================ */
 
+import copilotLogo from './Copilot identifier.svg';
+
 const defaultApiKeyEncoded = 'QVEuQWI4Uk42SnhZNTM5LXRpMkdlUlpWVk9YMm9waWFJeGF3V3FQbVlvczIzOEtNMjdTQkE=';
 const defaultModelName = 'models/gemini-3.1-flash-lite';
 
@@ -244,7 +246,7 @@ const TABS_CONTENT = [
                 <!-- Chatbot Pane -->
                 <div class="chatbot-pane glow-green-border" style="display: flex; flex-direction: column; height: 100%; box-sizing: border-box;">
                   <div class="chatbot-header" style="flex-shrink: 0;">
-                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" style="width: 20px; height: 20px;" />
+                    <img src="${copilotLogo}" alt="Copilot" style="width: 20px; height: 20px;" />
                     <span>Try the assurance agent</span>
                   </div>
                   <div class="chat-messages-container" id="assuranceChatMessages" style="display: flex; flex-direction: column; gap: 8px; max-height: 230px; overflow-y: auto; padding-right: 4px; margin-bottom: 8px; flex-grow: 1; min-height: 160px;">
@@ -288,7 +290,7 @@ const TABS_CONTENT = [
                 <!-- Chatbot Pane -->
                 <div class="chatbot-pane glow-purple-border">
                   <div class="chatbot-header">
-                    <img src="./src/Assets/Copilot identifier.svg" alt="Copilot" style="width: 20px; height: 20px;" />
+                    <img src="${copilotLogo}" alt="Copilot" style="width: 20px; height: 20px;" />
                     <span>Try the close agent</span>
                   </div>
                   <div class="chat-bubble-ai">
