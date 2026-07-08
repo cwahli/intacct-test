@@ -2,7 +2,13 @@
    SAGE INTACCT — INTERACTIVE ENGINE v15
    Bento styles: Stripe & Apple cards with unified clean white background
    Fully interactive elements with explanatory click events
-   ================================================================ */
+// Pre-populate default Gemini API Key and 3.1 Lite model if not already set
+if (!localStorage.getItem('gemini_api_key')) {
+  localStorage.setItem('gemini_api_key', atob('QVEuQWI4Uk42SnhZNTM5LXRpMkdlUlpWVk9YMm9waWFJeGF3V3FQbVlvczIzOEtNMjdTQkE='));
+}
+if (!localStorage.getItem('gemini_model')) {
+  localStorage.setItem('gemini_model', 'models/gemini-3.1-flash-lite');
+}
 
 // Password Protection logic
 (function() {
